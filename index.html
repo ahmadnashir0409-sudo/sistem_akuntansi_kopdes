@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistem Akuntansi Koperasi Desa</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+  body{background:#f2f4f1}
+  /* HEADER HIJAU */
+  .header{
+    background:#0B6E4F;
+    color:white;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  .header b{font-size:18px}
+  .header nav{display:flex;gap:18px;font-size:14px}
+  .header nav span{opacity:.85;cursor:pointer}
+  .header nav span.active{opacity:1;font-weight:700;border-bottom:2px solid white;padding-bottom:2px}
+  .header .right{margin-left:auto;display:flex;gap:14px;align-items:center}
+  .avatar{width:32px;height:32px;background:#FFD166;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0B6E4F;font-weight:bold}
+
+  .container{padding:20px;max-width:1200px;margin:auto}
+  .title-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .title-row h1{font-size:22px;color:#222}
+  .search{padding:9px 14px;border:1px solid #ddd;border-radius:999px;width:280px}
+
+  /* GRID KAYAK ODOO */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:700px){.grid{grid-template-columns:1fr}}
+
+  .card{background:white;border-radius:20px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start}
+  .card-top small{color:#888}
+  .card-top h3{font-size:16px;margin:2px 0}
+  .badge{background:#E6F4EE;color:#0B6E4F;font-size:12px;padding:4px 10px;border-radius:999px;font-weight:600}
+
+  /* TOMBOL BULAT - BEDA DARI ODOO */
+  .btn{
+    background:#0B6E4F;color:white;border:none;
+    padding:10px 18px;border-radius:999px;
+    font-weight:700;cursor:pointer;margin-top:12px;width:100%
+  }
+  .btn-outline{
+    background:white;color:#0B6E4F;border:1.5px solid #0B6E4F;
+    padding:10px 18px;border-radius:999px;
+    font-weight:700;cursor:pointer;margin-top:8px;width:100%
+  }
+  .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #eee;font-size:14px}
+  .row b{color:#222}
+  .red{color:#D32F2F}
+  .green{color:#0B6E4F}
+
+  /* GRAFIK BATANG SEDERHANA */
+  .chart{display:flex;align-items:flex-end;gap:10px;height:80px;margin-top:12px}
+  .bar{flex:1;background:#0B6E4F;border-radius:10px 10px 0 0}
+  .bar.red-bg{background:#EF5350}
+  .bar.grey{background:#BDBDBD}
+  .chart-label{display:flex;gap:10px;font-size:11px;color:#888;text-align:center;margin-top:6px}
+  .chart-label span{flex:1}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <b>🌾 Koperasi Desa</b>
+  <nav>
+    <span class="active">Akuntansi</span>
+    <span>Pelanggan</span>
+    <span>Pemasok</span>
+    <span>Laporan</span>
+    <span>Pengaturan</span>
+  </nav>
+  <div class="right">
+    <span>🔔 3</span>
+    <span>💬 2</span>
+    <div class="avatar">A</div>
+    <span>Administrator</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="title-row">
+    <h1>Dasbor Akuntansi</h1>
+    <input class="search" placeholder="🔍 Cari...">
+  </div>
+
+  <div class="grid">
+    <!-- FAKTUR PELANGGAN -->
+    <div class="card">
+      <div class="card-top">
+        <div><small>Penjualan</small><h3>Faktur Pelanggan</h3></div>
+        <span class="badge">4 Belum Lunas</span>
+      </div>
+      <div class="row"><span>1 Faktur Perlu Validasi</span><b>Rp 0</b></div>
+      <div class="row"><span>7 Faktur Belum Dibayar</span><b class="green">Rp 10.529.500</b></div>
+      <div class="chart">
+        <div class="bar" style="height:30%"></div>
+        <div class="bar" style="height:55%"></div>
+        <div class="bar" style="height:40%"></div>
+        <div class="bar" style="height:85%"></div>
+        <div class="bar grey" style="height:20%"></div>
+      </div>
+      <div class="chart-label"><span>Lalu</span><span>Minggu Lalu</span><span>Minggu Ini</span><span>Mendatang</span><span>Belum Jatuh Tempo</span></div>
+      <button class="btn">+ BUAT FAKTUR BARU</button>
+    </div>
+
+    <!-- TAGIHAN PEMASOK -->
+    <div class="card">
+      <div class="card-top">
+        <div><small>Pembelian</small><h3>Tagihan Pemasok</h3></div>
+        <span class="badge">2 Harus Dibayar</span>
+      </div>
+      <div class="row"><span>1 Tagihan Perlu Validasi</span><b>Rp 450.000</b></div>
+      <div class="row"><span>2 Tagihan Harus Dibayar</span><b class="red">Rp 15.749.999</b></div>
+      <div class="chart">
+        <div class="bar red-bg" style="height:40%"></div>
+        <div class="bar red-bg" style="height:60%"></div>
+        <div class="bar red-bg" style="height:35%"></div>
+        <div class="bar" style="height:75%"></div>
+        <div class="bar grey" style="height:25%"></div>
+      </div>
+      <div class="chart-label"><span>Lalu</span><span>Minggu Lalu</span><span>Minggu Ini</span><span>Mendatang</span><span>Belum Jatuh Tempo</span></div>
+      <button class="btn">+ BUAT TAGIHAN BARU</button>
+      <button class="btn-outline">📤 UNGGAH TAGIHAN</button>
+    </div>
+
+    <!-- BANK -->
+    <div class="card">
+      <div class="card-top">
+        <div><small>Keuangan</small><h3>Bank</h3></div>
+        <span class="badge">6 Perlu Rekonsiliasi</span>
+      </div>
+      <div class="row"><span>Saldo di Buku Besar</span><b>Rp 1.102.780</b></div>
+      <div class="row"><span>Saldo Rekening Terakhir</span><b>Rp 10.848.200</b></div>
+      <div class="row"><span>Selisih</span><b class="red">Rp 9.745.420</b></div>
+      <button class="btn">🔄 REKONSILIASI 6 ITEM</button>
+      <button class="btn-outline">⚙️ ATUR BANK</button>
+    </div>
+
+    <!-- KAS -->
+    <div class="card">
+      <div class="card-top">
+        <div><small>Keuangan</small><h3>Kas</h3></div>
+        <span class="badge">Saldo Minus</span>
+      </div>
+      <div class="row"><span>Saldo di Buku Besar</span><b class="red">Rp -1.000.000</b></div>
+      <div class="row"><span>Saldo Rekening Terakhir</span><b>Rp 500.000</b></div>
+      <div class="row"><span>Selisih</span><b class="red">Rp -1.500.000</b></div>
+      <button class="btn">+ TRANSAKSI BARU</button>
+    </div>
+
+    <!-- OPERASIONAL -->
+    <div class="card">
+      <div class="card-top">
+        <div><small>Operasional</small><h3>Jurnal Operasional</h3></div>
+        <span class="badge">Bulan Ini</span>
+      </div>
+      <div class="row"><span>Bensin & Solar</span><b class="red">Rp 850.000</b></div>
+      <div class="row"><span>Listrik & WiFi</span><b class="red">Rp 350.000</b></div>
+      <div class="row"><span>ATK & Lainnya</span><b class="red">Rp 120.000</b></div>
+      <button class="btn">+ TAMBAH BIAYA</button>
+    </div>
+
+    <!-- OFFTAKER -->
+    <div class="card">
+      <div class="card-top">
+        <div><small>Offtaker</small><h3>Offtaker Padi</h3></div>
+        <span class="badge">Masuk Rp 5.000.000</span>
+      </div>
+      <div class="row"><span>Harga per Kg</span><b>Rp 6.500 / Kg</b></div>
+      <div class="row"><span>Total Kg</span><b>769 Kg</b></div>
+      <div class="row"><span>Total Masuk</span><b class="green">Rp 5.000.000</b></div>
+      <button class="btn">+ INPUT OFFTAKER</button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
