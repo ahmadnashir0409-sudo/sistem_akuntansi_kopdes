@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "DAIBOEK by Nusa Pixel",
-  "short_name": "DAIBOEK",
+  "name": "DAGBOEK by Nusa Pixel",
+  "short_name": "DAGBOEK",
   "description": "Sistem Akuntansi Koperasi Desa",
   "lang": "id-ID",
   "start_url": "./",
@@ -14,13 +14,13 @@
   "categories": ["finance", "business", "productivity"],
   "icons": [
     {
-      "src": "./icons/daiboek-icon.svg",
+      "src": "./icons/dagboek-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "./icons/daiboek-icon.svg",
+      "src": "./icons/dagboek-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"
