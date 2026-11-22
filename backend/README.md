@@ -6,6 +6,7 @@
 - Neon region: `aws-ap-southeast-1` (Singapore)
 - Neon branch: `main`
 - Database: `dagboek`
+- Runtime database role: `dagboek_app` (least-privilege read/write; use this role for Hyperdrive)
 - PostgreSQL: 17
 - Cloudflare Worker: `dagboek-api`
 - Cloudflare account ID is intentionally not stored in this repository.
@@ -24,3 +25,6 @@ After the binding is attached, implement and test the API endpoints and migrate 
 
 ## Current status
 The Worker is a health/readiness scaffold only. It is not yet an operational accounting API. The Neon database is provisioned and verified as PostgreSQL 17; application tables have not been migrated.
+
+
+The original bootstrap owner login remains an internal legacy role in Neon; application connections should use `dagboek_app` instead.
