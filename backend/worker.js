@@ -1,5 +1,5 @@
 /**
- * DAIBOEK API — Cloudflare Workers
+ * DAGBOEK API — Cloudflare Workers
  *
  * Database access is intentionally gated until the Neon connection is
  * attached through a Cloudflare Hyperdrive binding named HYPERDRIVE.
@@ -19,7 +19,7 @@ export default {
     if (url.pathname === "/health") {
       return Response.json({
         ok: true,
-        service: "DAIBOEK API",
+        service: "DAGBOEK API",
         backend: "Cloudflare Workers",
         database: env.HYPERDRIVE ? "neon-binding-configured" : "not-configured",
       }, { headers: corsHeaders(request) });
@@ -29,7 +29,7 @@ export default {
       const ready = Boolean(env.HYPERDRIVE);
       return Response.json({
         ready,
-        service: "DAIBOEK API",
+        service: "DAGBOEK API",
         database: ready ? "binding-present" : "awaiting-hyperdrive",
       }, {
         status: ready ? 200 : 503,
