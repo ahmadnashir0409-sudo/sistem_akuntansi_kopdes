@@ -1,8 +1,8 @@
 
-const SUPABASE_URL = "https://srfhamdyewblyuangxzz.supabase.co";
-const SUPABASE_KEY = "sb_publishable_GBr3oKysuufZHQ4Ol-1J0Q_QJWabH1q";
+const SUPABASE_URL = "https://YOUR-NEW-DAIBOEK-PROJECT.supabase.co";
+const SUPABASE_KEY = "YOUR_NEW_DAIBOEK_PUBLISHABLE_KEY";
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-window.kdmpSupabase = supabaseClient;
+window.daiboekSupabase = supabaseClient;
 const modules = {
   keuangan: ["💰", "Pencatatan Keuangan", "Pencatatan pemasukan, pengeluaran, dan transaksi kas."],
   coa: ["📚", "Chart of Accounts", "Pengelolaan daftar akun dan kode perkiraan."],
@@ -31,16 +31,16 @@ const style = document.createElement("style");
 style.textContent = `
 #loginScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:#f5f6fa;font-family:Arial,sans-serif}
 .login-card{width:100%;max-width:410px;background:white;padding:35px;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.08)}
-.login-logo{width:58px;height:58px;background:#a71925;color:white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;margin-bottom:20px}
+.login-logo{width:58px;height:58px;background:#00a968;color:white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;margin-bottom:20px}
 .login-card h2{color:#222;margin:0 0 8px}.login-card p{color:#777;font-size:14px;margin-bottom:25px}
 .login-card label{display:block;font-size:13px;font-weight:bold;margin:15px 0 7px;color:#444}
 .login-card input{width:100%;box-sizing:border-box;padding:13px;border:1px solid #ddd;border-radius:8px;font-size:15px}
-.login-card button{width:100%;padding:14px;margin-top:22px;border:none;border-radius:8px;background:#a71925;color:white;font-size:15px;font-weight:bold;cursor:pointer}
-.login-card button:disabled{opacity:.6;cursor:wait}#loginError{color:#b91c2c;font-size:13px;margin-top:14px}
+.login-card button{width:100%;padding:14px;margin-top:22px;border:none;border-radius:8px;background:#00a968;color:white;font-size:15px;font-weight:bold;cursor:pointer}
+.login-card button:disabled{opacity:.6;cursor:wait}#loginError{color:#00a968;font-size:13px;margin-top:14px}
 #logoutButton{border:1px solid #ddd;background:white;padding:8px 12px;border-radius:7px;cursor:pointer;margin-left:15px}
 .erp-content{margin-top:25px;width:100%}
 .erp-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-.erp-button{background:#a71925;color:white;border:0;padding:11px 16px;border-radius:8px;cursor:pointer;font-weight:600}
+.erp-button{background:#00a968;color:white;border:0;padding:11px 16px;border-radius:8px;cursor:pointer;font-weight:600}
 .erp-button:disabled{opacity:.6;cursor:wait}.erp-button.secondary{background:#eee;color:#444}
 .erp-form{display:none;background:white;border:1px solid #eee;border-radius:12px;padding:20px;margin-bottom:20px}
 .erp-form h3{margin-top:0}.erp-field label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px;color:#555}
@@ -50,13 +50,13 @@ style.textContent = `
 .erp-table{width:100%;border-collapse:collapse;min-width:650px}
 .erp-table th,.erp-table td{padding:13px 15px;text-align:left;border-bottom:1px solid #eee;font-size:13px;white-space:nowrap}
 .erp-table th{background:#fafafa;color:#555}.erp-table tr:last-child td{border-bottom:0}
-.erp-message{font-size:13px;margin:12px 0}.erp-error{color:#b91c2c}.erp-success{color:#18743b}
+.erp-message{font-size:13px;margin:12px 0}.erp-error{color:#00a968}.erp-success{color:#18743b}
 .erp-muted{color:#777;font-size:13px}.erp-actions{display:flex;gap:10px;margin-top:18px}
 .erp-actions button{border:0;border-radius:7px;padding:11px 16px;cursor:pointer;font-weight:bold}
 .erp-status{display:inline-block;padding:5px 9px;border-radius:20px;background:#e8f7ed;color:#18743b;font-size:11px;font-weight:bold}
 .journal-line{display:grid;grid-template-columns:1.1fr 1.5fr 1fr 1fr auto;gap:9px;align-items:end;padding:12px 0;border-bottom:1px solid #eee}
 .journal-line .erp-field{min-width:0}.journal-line input,.journal-line select{min-width:0;width:100%;box-sizing:border-box}
-.journal-remove{border:0;background:#fee;color:#a71925;padding:10px;border-radius:7px;cursor:pointer}
+.journal-remove{border:0;background:#fee;color:#00a968;padding:10px;border-radius:7px;cursor:pointer}
 .journal-totals{display:flex;justify-content:flex-end;gap:25px;flex-wrap:wrap;margin-top:18px;font-size:14px}
 .journal-total{font-weight:bold}.journal-balance{margin-top:12px;font-size:13px;font-weight:bold}
 .financial-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:20px}
@@ -64,7 +64,7 @@ style.textContent = `
 .financial-card small{color:#777;display:block;margin-bottom:9px}.financial-card strong{font-size:20px;color:#222}
 .financial-tabs{display:flex;gap:10px;margin-bottom:18px}
 .financial-tabs button{border:1px solid #ddd;background:white;color:#555;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:bold}
-.financial-tabs button.active{background:#a71925;color:white;border-color:#a71925}
+.financial-tabs button.active{background:#00a968;color:white;border-color:#00a968}
 .financial-note{background:#fff8e8;border:1px solid #f1dfb7;color:#75551c;padding:12px;border-radius:8px;font-size:12px;margin-bottom:16px}
 .ledger-filter{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:12px;align-items:end;background:white;border:1px solid #eee;border-radius:12px;padding:18px;margin-bottom:20px}
 .ledger-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:20px}
@@ -77,15 +77,15 @@ style.textContent = `
 .report-card small{display:block;color:#777;margin-bottom:9px}
 .report-card strong{font-size:20px;color:#222;overflow-wrap:anywhere}
 .report-card.profit{border-left:4px solid #18743b}
-.report-card.loss{border-left:4px solid #b91c2c}
+.report-card.loss{border-left:4px solid #00a968}
 .report-section-title{margin:25px 0 12px;font-size:16px}
 .report-total-row{font-weight:bold;background:#fafafa}
 .report-empty{padding:18px;text-align:center;color:#777}
-.journal-detail-button{border:1px solid #a71925;background:#fff;color:#a71925;padding:7px 10px;border-radius:7px;cursor:pointer;font-weight:600;font-size:12px}
+.journal-detail-button{border:1px solid #00a968;background:#fff;color:#00a968;padding:7px 10px;border-radius:7px;cursor:pointer;font-weight:600;font-size:12px}
 .journal-detail-button:hover{background:#fff4f4}
 .ledger-clickable-row{cursor:pointer}
 .ledger-clickable-row:hover{background:#fff7f7}
-.ledger-clickable-row:focus{outline:2px solid #a71925;outline-offset:-2px}
+.ledger-clickable-row:focus{outline:2px solid #00a968;outline-offset:-2px}
 .ledger-clickable-row td:last-child{white-space:nowrap}
 
 .journal-detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:99999;display:flex;align-items:center;justify-content:center;padding:18px}
@@ -116,7 +116,7 @@ const balanceAccountDetailStyle=document.createElement("style");
 balanceAccountDetailStyle.textContent=`
 .balance-account-clickable{cursor:pointer}
 .balance-account-clickable:hover{background:#fff5f5}
-.balance-account-clickable:focus{outline:2px solid #a71925;outline-offset:-2px}
+.balance-account-clickable:focus{outline:2px solid #00a968;outline-offset:-2px}
 .balance-detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99998;display:flex;align-items:center;justify-content:center;padding:16px}
 .balance-detail-dialog{width:min(1050px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:14px;padding:22px;box-shadow:0 15px 50px rgba(0,0,0,.2)}
 .balance-detail-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:15px}
@@ -200,7 +200,7 @@ dashboardStyle.textContent = `
   display:inline-block;
 }
 .dashboard-error {
-  color:#b91c2c;
+  color:#00a968;
   font-size:13px;
   padding:12px 0;
 }
@@ -390,8 +390,8 @@ loginScreen.id = "loginScreen";
 loginScreen.innerHTML = `
   <div class="login-card">
     <div class="login-logo">D</div>
-    <h2>DAGBOEK</h2>
-    <p>by NUSA PIXEL · Pendowo Asri Management System</p>
+    <h2>DAIBOEK</h2>
+    <p>by NUSA PIXEL · ACCOUNTING SYSTEM</p>
     <form id="loginForm">
       <label>Email</label><input type="email" id="loginEmail" required autocomplete="username">
       <label>Password</label><input type="password" id="loginPassword" required autocomplete="current-password">
@@ -1726,7 +1726,7 @@ window.toggleSidebar=toggleSidebar;
 // =====================================
 
 async function setupBankReconciliation() {
-  const client = window.kdmpSupabase;
+  const client = window.daiboekSupabase;
   const modulePage = document.getElementById("modulePage");
 
   let content = document.getElementById("bankContent");
@@ -1864,7 +1864,7 @@ async function setupBankReconciliation() {
 }
 
 async function calculateBankReconciliation() {
-  const client = window.kdmpSupabase;
+  const client = window.daiboekSupabase;
   const accountId = document.getElementById("bankAccount").value;
   const start = document.getElementById("bankStart").value;
   const end = document.getElementById("bankEnd").value;
@@ -2014,7 +2014,7 @@ async function calculateBankReconciliation() {
 }
 
 async function saveBankMutation() {
-  const client = window.kdmpSupabase;
+  const client = window.daiboekSupabase;
   const accountId = document.getElementById("bankAccount").value;
   const date = document.getElementById("bankMutationDate").value;
   const type = document.getElementById("bankMutationType").value;
@@ -2066,7 +2066,7 @@ async function saveBankMutation() {
 async function saveBankReconciliation(
   accountId, start, end, statementBalance, bookBalance, difference
 ) {
-  const client = window.kdmpSupabase;
+  const client = window.daiboekSupabase;
   if (!client) throw new Error("Koneksi database belum siap.");
   if (!accountId || !start || !end) throw new Error("Akun dan periode wajib dipilih.");
   if (![statementBalance, bookBalance, difference].every(Number.isFinite)) {
@@ -2101,7 +2101,7 @@ async function saveBankReconciliation(
 }
 
 async function loadBankReconciliations() {
-  const client = window.kdmpSupabase;
+  const client = window.daiboekSupabase;
   const target = document.getElementById("bankHistory");
   if (!target) return;
 
@@ -2153,7 +2153,7 @@ async function loadBankReconciliations() {
 }
 
 async function loadBankMutations(reconciliationId) {
-  const client = window.kdmpSupabase;
+  const client = window.daiboekSupabase;
   const target = document.getElementById("bankMutations");
   if (!target) return;
 
@@ -2260,7 +2260,7 @@ async function loadBankMutations(reconciliationId) {
 }
 
 async function matchBankMutation(itemId, selectId) {
-  const client = window.kdmpSupabase;
+  const client = window.daiboekSupabase;
   const select = document.getElementById(selectId);
   const journalLineId = select?.value;
   if (!journalLineId) {
@@ -2392,13 +2392,13 @@ invoiceStyle.textContent = `
 .invoice-items select{min-width:230px}.inv-stock-info{display:block;color:#687386;font-size:11px;margin-top:5px}.inv-stock-info.low{color:#b42318;font-weight:bold}
 .invoice-total{text-align:right;margin-top:16px;font-weight:bold;font-size:18px}
 .invoice-action{border:0;border-radius:7px;padding:9px 13px;cursor:pointer;font-weight:bold}
-.invoice-primary{background:#a71925;color:#fff}
+.invoice-primary{background:#00a968;color:#fff}
 .invoice-secondary{background:#f1f1f1;color:#444}
-.invoice-danger{background:#fee;color:#a71925}
+.invoice-danger{background:#fee;color:#00a968}
 .invoice-status{padding:5px 9px;border-radius:20px;background:#f1f1f1;font-size:11px}
 .invoice-status.paid{background:#e8f7ed;color:#18743b}
 .invoice-status.sent{background:#eaf2ff;color:#2860a8}
-.invoice-status.overdue{background:#fee;color:#a71925}
+.invoice-status.overdue{background:#fee;color:#00a968}
 .invoice-message{font-size:13px;margin-top:12px}
 .invoice-payment-box{margin-top:22px;padding:16px;border:1px solid #eee;border-radius:10px;background:#fafafa}
 .invoice-payment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -3073,7 +3073,7 @@ async function showInvoiceDetail(id) {
   <div id="invoicePrintArea">
    <div style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap">
     <div>
-     <h2 style="color:#a71925;margin-bottom:5px">KDMP PENDOWO ASRI</h2>
+     <h2 style="color:#00a968;margin-bottom:5px">KDMP PENDOWO ASRI</h2>
      <p>INVOICE / FAKTUR TAGIHAN</p>
     </div>
     <div>
@@ -3663,12 +3663,12 @@ tokoStyle.textContent = `
 .toko-table th{background:#fafafa}
 .toko-table input{width:100%;box-sizing:border-box;padding:9px;border:1px solid #ddd;border-radius:6px}
 .toko-total{display:flex;justify-content:space-between;padding:8px 0}
-.toko-grand-total{font-size:22px;font-weight:800;color:#a71925}
+.toko-grand-total{font-size:22px;font-weight:800;color:#00a968}
 .toko-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
 .toko-stat{background:white;border:1px solid #eee;border-radius:10px;padding:16px}
 .toko-stat small{display:block;color:#777;margin-bottom:7px}
 .toko-stat strong{font-size:19px}
-.toko-btn{border:0;border-radius:7px;padding:10px 15px;background:#a71925;color:white;font-weight:600;cursor:pointer}
+.toko-btn{border:0;border-radius:7px;padding:10px 15px;background:#00a968;color:white;font-weight:600;cursor:pointer}
 .toko-btn.secondary{background:#eee;color:#333}
 .toko-btn.danger{background:#fee2e2;color:#991b1b}
 .toko-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
@@ -3681,7 +3681,7 @@ tokoStyle.textContent = `
 .toko-status.diproses{background:#fef3c7;color:#92400e}
 .toko-status.gagal{background:#fee2e2;color:#991b1b}
 .toko-status.dibatalkan{background:#eee;color:#555}
-.toko-btn.cancel-sale{background:#fff0f0;color:#a71925;border:1px solid #e7b7bc}.toko-btn.cancel-sale:disabled{opacity:.55;cursor:wait}
+.toko-btn.cancel-sale{background:#fff0f0;color:#00a968;border:1px solid #e7b7bc}.toko-btn.cancel-sale:disabled{opacity:.55;cursor:wait}
 @media(max-width:650px){
  .toko-grid{grid-template-columns:1fr}
  .toko-stat-grid{grid-template-columns:1fr}
@@ -4374,7 +4374,7 @@ memberStyle.textContent = `
   border-radius:7px;font:inherit;background:white
 }
 .member-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.member-btn{border:0;border-radius:7px;padding:10px 15px;background:#a71925;color:white;font-weight:600;cursor:pointer}
+.member-btn{border:0;border-radius:7px;padding:10px 15px;background:#00a968;color:white;font-weight:600;cursor:pointer}
 .member-btn.gray{background:#eee;color:#333}
 .member-btn:disabled{opacity:.6;cursor:not-allowed}
 .member-search{max-width:360px;width:100%;padding:11px;border:1px solid #ddd;border-radius:7px}
@@ -4820,7 +4820,7 @@ savingsStyle.textContent = `
  width:100%;box-sizing:border-box;padding:11px;border:1px solid #ddd;
  border-radius:7px;font:inherit;background:white
 }
-.sav-btn{border:0;border-radius:7px;padding:10px 15px;background:#a71925;color:white;font-weight:600;cursor:pointer}
+.sav-btn{border:0;border-radius:7px;padding:10px 15px;background:#00a968;color:white;font-weight:600;cursor:pointer}
 .sav-btn.gray{background:#eee;color:#333}
 .sav-btn:disabled{opacity:.6;cursor:not-allowed}
 .sav-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
@@ -5272,7 +5272,7 @@ loanStyle.textContent = `
 .loan-field{margin-bottom:13px}
 .loan-field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:#555}
 .loan-field input,.loan-field select,.loan-field textarea{width:100%;box-sizing:border-box;padding:11px;border:1px solid #ddd;border-radius:7px;font:inherit;background:white}
-.loan-btn{border:0;border-radius:7px;padding:10px 15px;background:#a71925;color:white;font-weight:600;cursor:pointer;margin:2px}
+.loan-btn{border:0;border-radius:7px;padding:10px 15px;background:#00a968;color:white;font-weight:600;cursor:pointer;margin:2px}
 .loan-btn.gray{background:#eee;color:#333}
 .loan-btn.green{background:#16834e}
 .loan-btn:disabled{opacity:.6;cursor:not-allowed}
@@ -6363,7 +6363,7 @@ savingsMenuStyle.textContent = `
   box-shadow:0 2px 8px rgba(0,0,0,.035);
 }
 .simpanan-menu-card:hover{
-  border-color:#a71925;
+  border-color:#00a968;
   transform:translateY(-2px);
   box-shadow:0 5px 15px rgba(167,25,37,.10);
 }
@@ -6626,7 +6626,7 @@ managerDashboardStyle.textContent = `
   margin-top:8px;
 }
 .manager-info-card.warning .manager-info-value {
-  color:#b91c2c;
+  color:#00a968;
 }
 .manager-dashboard-message {
   font-size:12px;
@@ -6803,7 +6803,7 @@ async function loadManagerDashboardCards() {
     if (messageElement) {
       messageElement.textContent =
         "Monitoring gagal dimuat: " + (error.message || "Periksa koneksi database.");
-      messageElement.style.color = "#b91c2c";
+      messageElement.style.color = "#00a968";
     }
   }
 }
@@ -6847,7 +6847,7 @@ pendingLoanStyle.textContent = `
 }
 .pending-loan-count {
   background:#fff1f2;
-  color:#b91c2c;
+  color:#00a968;
   padding:6px 11px;
   border-radius:20px;
   font-size:12px;
@@ -6873,12 +6873,12 @@ pendingLoanStyle.textContent = `
 }
 .pending-loan-amount {
   font-weight:700;
-  color:#b91c2c;
+  color:#00a968;
   margin-bottom:8px;
   text-align:right;
 }
 .pending-loan-button {
-  background:#b91c2c;
+  background:#00a968;
   color:white;
   border:0;
   padding:8px 12px;
@@ -7023,7 +7023,7 @@ async function loadPendingLoanNotifications() {
     badge.textContent = "Gagal memuat";
 
     list.innerHTML = `
-      <div class="pending-loan-empty" style="color:#b91c2c">
+      <div class="pending-loan-empty" style="color:#00a968">
         Gagal membaca pengajuan: ${escapeHTML(error.message)}
       </div>
     `;
@@ -7117,7 +7117,7 @@ exportCenterStyle.textContent = `
 }
 .export-button {
   margin-top:20px;
-  background:#a71925;
+  background:#00a968;
   color:white;
   border:0;
   border-radius:8px;
@@ -7137,7 +7137,7 @@ exportCenterStyle.textContent = `
   line-height:1.6;
 }
 .export-message.success {color:#16834e}
-.export-message.error {color:#b91c2c}
+.export-message.error {color:#00a968}
 @media(max-width:650px) {
   .export-grid {grid-template-columns:1fr}
   .export-center {padding:17px}
@@ -7670,7 +7670,7 @@ inventoryStyle.textContent = `
 }
 .inventory-field textarea{min-height:65px}
 .inventory-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.inventory-btn{border:0;border-radius:8px;padding:10px 15px;background:#a71925;color:white;font-weight:650;cursor:pointer}
+.inventory-btn{border:0;border-radius:8px;padding:10px 15px;background:#00a968;color:white;font-weight:650;cursor:pointer}
 .inventory-btn.gray{background:#eee;color:#333}
 .inventory-btn:disabled{opacity:.6;cursor:wait}
 .inventory-search{max-width:350px;width:100%;padding:11px;border:1px solid #ddd;border-radius:7px}
@@ -7705,7 +7705,7 @@ inventoryStyle.textContent = `
 .inventory-badge{padding:5px 9px;border-radius:20px;background:#e8f8ef;color:#16834e;font-size:11px;font-weight:700}
 .inventory-badge.low{background:#fff0d9;color:#a45b00}
 .inventory-message{font-size:13px;margin-top:12px;line-height:1.5}
-.inventory-error{color:#b91c2c}
+.inventory-error{color:#00a968}
 .inventory-success{color:#16834e}
 .inventory-hidden{display:none!important}
 @media(max-width:900px){
@@ -8576,9 +8576,9 @@ debtReceivableStyle.textContent = `
 .debt-table th{background:#fafafa;color:#555}
 .debt-status{display:inline-block;padding:5px 9px;border-radius:20px;background:#fff0e6;color:#a34b12;font-size:11px;font-weight:700}
 .debt-status.partial{background:#fff4d8;color:#8a5a00}
-.debt-status.overdue{background:#fee;color:#a71925}
+.debt-status.overdue{background:#fee;color:#00a968}
 .debt-status.paid{background:#e8f7ed;color:#18743b}
-.debt-btn{border:0;border-radius:7px;padding:8px 11px;background:#a71925;color:#fff;font-weight:600;cursor:pointer}
+.debt-btn{border:0;border-radius:7px;padding:8px 11px;background:#00a968;color:#fff;font-weight:600;cursor:pointer}
 .debt-muted{color:#777;font-size:13px}
 @media(max-width:700px){.debt-summary{grid-template-columns:1fr}.debt-panel{padding:13px}}
 `;
@@ -8709,7 +8709,7 @@ kdmpSettingsStyle.textContent=`
 #inviteUserMessage.error{color:#b42318}
 .settings-btn:disabled{opacity:.6;cursor:wait}
 .settings-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:8px}
-.settings-btn{border:0;border-radius:8px;padding:10px 15px;background:#a71925;color:#fff;font-weight:700;font-size:12px;cursor:pointer}
+.settings-btn{border:0;border-radius:8px;padding:10px 15px;background:#00a968;color:#fff;font-weight:700;font-size:12px;cursor:pointer}
 .settings-btn.secondary{background:#eef0f3;color:#4d5562}
 .settings-logo-preview{width:76px;height:76px;border:1px dashed #cbd0d8;border-radius:12px;display:grid;place-items:center;overflow:hidden;background:#fafafa;color:#888;font-size:11px;margin-bottom:10px}
 .settings-logo-preview img{width:100%;height:100%;object-fit:contain}
@@ -8720,7 +8720,7 @@ kdmpSettingsStyle.textContent=`
 .settings-theme-state small{display:block;color:#858b98;margin-top:2px;font-size:11px}
 .settings-theme-switch{position:relative;flex:0 0 46px;width:46px;height:26px;border:0;border-radius:20px;background:#c5cad2;padding:0;cursor:pointer;transition:background .2s ease}
 .settings-theme-switch::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:transform .2s ease}
-.settings-theme-switch[aria-checked="true"]{background:#a71925}
+.settings-theme-switch[aria-checked="true"]{background:#00a968}
 .settings-theme-switch[aria-checked="true"]::after{transform:translateX(20px)}
 .settings-theme-switch:focus-visible{outline:3px solid #e6a0a7;outline-offset:3px}
 #settingsMessage{font-size:12px;margin-top:10px;min-height:17px}
@@ -8781,11 +8781,11 @@ body[data-kdmp-theme="dark"] .inventory-stock-closing{color:#166534!important}
 const aboutBrandStyle=document.createElement("style");
 aboutBrandStyle.textContent=`
 .about-brand-card{display:flex;align-items:flex-start;gap:18px;overflow:hidden;position:relative;background:linear-gradient(135deg,#fff 0%,#fff8f8 100%);border-color:#f0d9dc}
-.about-brand-mark{flex:0 0 58px;width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#b91c2c,#761421);color:#fff;font-size:29px;font-weight:800;box-shadow:0 8px 20px rgba(137,20,34,.18)}
+.about-brand-mark{flex:0 0 58px;width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#00a968,#761421);color:#fff;font-size:29px;font-weight:800;box-shadow:0 8px 20px rgba(137,20,34,.18)}
 .about-brand-content{min-width:0}
-.about-brand-eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:800;color:#a71925}
+.about-brand-eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:800;color:#00a968}
 .about-brand-content h3{font-size:25px;letter-spacing:1px;margin:5px 0 2px;color:#252a34}
-.about-brand-tagline{margin:0 0 12px;font-size:12px;font-weight:700;color:#a71925}
+.about-brand-tagline{margin:0 0 12px;font-size:12px;font-weight:700;color:#00a968}
 .about-brand-description{max-width:760px;margin:0;color:#687080;font-size:13px;line-height:1.65}
 .about-brand-divider{height:1px;background:#eadde0;margin:16px 0}
 .about-brand-credit{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin:6px 0;font-size:12px}
@@ -8880,9 +8880,9 @@ function setupSettings(){
         <div class="about-brand-mark">D</div>
         <div class="about-brand-content">
           <span class="about-brand-eyebrow">ABOUT THIS APPLICATION</span>
-          <h3>DAGBOEK</h3>
+          <h3>DAIBOEK</h3>
           <p class="about-brand-tagline">ERP & Financial Management System</p>
-          <p class="about-brand-description">DAGBOEK dikembangkan sebagai sistem pengelolaan operasional dan keuangan yang membantu pencatatan, pemantauan, serta pengambilan keputusan secara lebih terstruktur.</p>
+          <p class="about-brand-description">DAIBOEK dikembangkan sebagai sistem pengelolaan operasional dan keuangan yang membantu pencatatan, pemantauan, serta pengambilan keputusan secara lebih terstruktur.</p>
           <div class="about-brand-divider"></div>
           <div class="about-brand-credit"><span>Dikembangkan oleh</span><strong>Ahmad Nashirudin</strong></div>
           <div class="about-brand-credit"><span>Studio pengembang</span><strong>Nusa Pixel</strong></div>
@@ -8907,7 +8907,7 @@ function setupSettings(){
       const old=getKDMPProfile();
       const profile={name,email:document.getElementById("settingsOrgEmail").value.trim(),phone:document.getElementById("settingsOrgPhone").value.trim(),address:document.getElementById("settingsOrgAddress").value.trim(),logo:section.dataset.pendingLogo||old.logo||""};
       try{localStorage.setItem("kdmp_erp_profile",JSON.stringify(profile));document.getElementById("settingsMessage").textContent="Profil berhasil disimpan di perangkat ini.";document.getElementById("settingsMessage").style.color="#159765";}
-      catch(error){document.getElementById("settingsMessage").textContent="Gagal menyimpan. Ukuran logo mungkin terlalu besar.";document.getElementById("settingsMessage").style.color="#b91c2c";}
+      catch(error){document.getElementById("settingsMessage").textContent="Gagal menyimpan. Ukuran logo mungkin terlalu besar.";document.getElementById("settingsMessage").style.color="#00a968";}
     });
     document.getElementById("settingsResetProfile").addEventListener("click",()=>{
       if(!confirm("Pulihkan profil ke default KDMP Pendowo Asri?"))return;
@@ -9009,7 +9009,7 @@ window.showPage=function(page,button){
 
 
 // =====================================================
-// REFERENSI DAGBOEK: RUMUS EXCEL & KAMUS AKUNTANSI
+// REFERENSI DAIBOEK: RUMUS EXCEL & KAMUS AKUNTANSI
 // =====================================================
 const referenceExcelData = [
   {name:"SUM",category:"Matematika",syntax:"=SUM(number1, [number2], …)",example:"=SUM(B2:B10)",description:"Menjumlahkan seluruh angka dalam satu atau beberapa rentang.",use:"Menjumlahkan total pemasukan, pengeluaran, simpanan, atau penjualan."},
@@ -9091,7 +9091,7 @@ function setupReferenceLibrary(){
     section.innerHTML=`
       <div class="reference-hero">
         <div class="reference-hero-icon">📚</div>
-        <div><span class="reference-eyebrow">PUSAT REFERENSI DAGBOEK</span><h2>Rumus Excel & Kamus Akuntansi</h2><p>Temukan rumus spreadsheet dan pahami istilah akuntansi dengan contoh yang dekat dengan kegiatan koperasi.</p></div>
+        <div><span class="reference-eyebrow">PUSAT REFERENSI DAIBOEK</span><h2>Rumus Excel & Kamus Akuntansi</h2><p>Temukan rumus spreadsheet dan pahami istilah akuntansi dengan contoh yang dekat dengan kegiatan koperasi.</p></div>
       </div>
       <div class="reference-tabs" role="tablist" aria-label="Jenis referensi">
         <button type="button" class="reference-tab active" data-reference-tab="excel" role="tab" aria-selected="true">📊 Rumus Excel</button>
