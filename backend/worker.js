@@ -4,7 +4,7 @@ const jsonHeaders = {
   "Content-Type": "application/json; charset=utf-8",
   "Cache-Control": "no-store",
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
@@ -93,7 +93,7 @@ export default {
         const passwordHash = await derivePassword(password, salt);
         const rows = await sql`
           insert into public.profiles (email, password_hash, password_salt, nama_lengkap, role, is_active)
-          values (${email}, ${passwordHash}, ${toBase64(salt)}, ${name}, 'manager', true)
+          values (${email}, ${passwordHash}, ${toBase64(salt)}, ${name}, 'manajer', true)
           returning id, email, nama_lengkap, role
         `;
         return json({ ok: true, user: rows[0] }, 201);
