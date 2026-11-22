@@ -3,6 +3,8 @@ const APP_SHELL = [
   "./",
   "./index.html",
   "./style.css",
+  "./app.js",
+  "./utang-piutang.js",
   "./manifest.json",
   "./icons/daiboek-icon.svg"
 ];
