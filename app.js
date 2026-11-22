@@ -2364,7 +2364,7 @@ async function checkLoginSession() {
 checkLoginSession();
 
 // =============================================
-// MODUL INVOICE KDMP PENDOWO ASRI
+// MODUL INVOICE KOPERASI DESA
 // =============================================
 
 let invoiceRows = [];
@@ -3073,7 +3073,7 @@ async function showInvoiceDetail(id) {
   <div id="invoicePrintArea">
    <div style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap">
     <div>
-     <h2 style="color:#00a968;margin-bottom:5px">KDMP PENDOWO ASRI</h2>
+     <h2 style="color:#00a968;margin-bottom:5px">KOPERASI DESA</h2>
      <p>INVOICE / FAKTUR TAGIHAN</p>
     </div>
     <div>
@@ -3647,7 +3647,7 @@ window.showPage=function(page,button){
 };
 
 // ==========================================
-// MODUL TRANSAKSI TOKO - KDMP PENDOWO ASRI
+// MODUL TRANSAKSI TOKO - KOPERASI DESA
 // ==========================================
 
 const tokoStyle = document.createElement("style");
@@ -3705,7 +3705,7 @@ function setupToko(){
     <div class="erp-toolbar">
       <div>
         <h3>Kasir Transaksi Toko</h3>
-        <p class="erp-muted">Pencatatan penjualan dan pembayaran KDMP Pendowo Asri.</p>
+        <p class="erp-muted">Pencatatan penjualan dan pembayaran Koperasi Desa.</p>
       </div>
     </div>
 
@@ -4312,7 +4312,7 @@ function printTokoReceipt(sale,items){
       </style>
     </head>
     <body>
-      <h2>KDMP PENDOWO ASRI</h2>
+      <h2>KOPERASI DESA</h2>
       <p>Struk Penjualan</p>
       <hr>
       <p style="text-align:left">No: ${escapeHTML(sale.sale_number)}</p>
@@ -4355,7 +4355,7 @@ window.showPage=function(page,button){
 document.getElementById("operationalMenuButton")?.remove();
 
 // ==========================================
-// MODUL DATA ANGGOTA KDMP PENDOWO ASRI
+// MODUL DATA ANGGOTA KOPERASI DESA
 // ==========================================
 
 const memberStyle = document.createElement("style");
@@ -4410,7 +4410,7 @@ function setupMemberManagement(){
       <div class="erp-toolbar">
         <div>
           <h3>Data Anggota Koperasi</h3>
-          <p class="erp-muted">Kelola identitas dan status keanggotaan KDMP Pendowo Asri.</p>
+          <p class="erp-muted">Kelola identitas dan status keanggotaan Koperasi Desa.</p>
         </div>
         <button class="member-btn" id="memberAddButton">+ Tambah Anggota</button>
       </div>
@@ -7055,7 +7055,7 @@ if (document.readyState === "loading") {
 }
 
 /* ==================================================
-   PUSAT PENARIKAN DATA - KDMP PENDOWO ASRI
+   PUSAT PENARIKAN DATA - KOPERASI DESA
    Lokasi: Monitoring Manajer
    Format: Excel XLSX
 ================================================== */
@@ -7647,7 +7647,7 @@ window.showPage = function(page,button) {
 
 /* =====================================================
    MODUL PERSEDIAAN BARANG
-   KDMP PENDOWO ASRI
+   KOPERASI DESA
 ===================================================== */
 
 const inventoryStyle = document.createElement("style");
@@ -8891,7 +8891,7 @@ function setupSettings(){
       </div>`;
     parent.appendChild(section);
     const profile=getKDMPProfile();
-    document.getElementById("settingsOrgName").value=profile.name||"KDMP Pendowo Asri";
+    document.getElementById("settingsOrgName").value=profile.name||"Koperasi Desa";
     document.getElementById("settingsOrgEmail").value=profile.email||"";
     document.getElementById("settingsOrgPhone").value=profile.phone||"";
     document.getElementById("settingsOrgAddress").value=profile.address||"";
@@ -8910,9 +8910,9 @@ function setupSettings(){
       catch(error){document.getElementById("settingsMessage").textContent="Gagal menyimpan. Ukuran logo mungkin terlalu besar.";document.getElementById("settingsMessage").style.color="#00a968";}
     });
     document.getElementById("settingsResetProfile").addEventListener("click",()=>{
-      if(!confirm("Pulihkan profil ke default KDMP Pendowo Asri?"))return;
+      if(!confirm("Pulihkan profil ke default Koperasi Desa?"))return;
       localStorage.removeItem("kdmp_erp_profile");section.dataset.pendingLogo="";
-      document.getElementById("settingsOrgName").value="KDMP Pendowo Asri";
+      document.getElementById("settingsOrgName").value="Koperasi Desa";
       document.getElementById("settingsOrgEmail").value="";document.getElementById("settingsOrgPhone").value="";document.getElementById("settingsOrgAddress").value="";
       document.getElementById("settingsLogoPreview").textContent="Logo";document.getElementById("settingsLogoFile").value="";
       document.getElementById("settingsMessage").textContent="Profil default dipulihkan.";
