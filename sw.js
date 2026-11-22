@@ -1,4 +1,4 @@
-const CACHE_NAME = "daiboek-shell-v2";
+const CACHE_NAME = "dagboek-shell-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -6,7 +6,7 @@ const APP_SHELL = [
   "./app.js",
   "./utang-piutang.js",
   "./manifest.json",
-  "./icons/daiboek-icon.svg"
+  "./icons/dagboek-icon.svg"
 ];
 
 self.addEventListener("install", (event) => {
