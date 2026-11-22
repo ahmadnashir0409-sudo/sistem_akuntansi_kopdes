@@ -1,0 +1,8 @@
+name = "dagboek-api"
+main = "worker.js"
+compatibility_date = "2026-11-22"
+workers_dev = true
+
+[[hyperdrive]]
+binding = "HYPERDRIVE"
+id = "f078d2a69e3d4e59936fc971e76da6d4"
