@@ -1,30 +1,31 @@
-# DAGBOEK backend setup
+# DAGBOEK API
 
-## Provisioned resources
-- Neon project: `dagboek-nusa-pixel`
-- Neon project ID: `fancy-art-79318392`
-- Neon region: `aws-ap-southeast-1` (Singapore)
-- Neon branch: `main`
-- Database: `dagboek`
-- Runtime database role: `dagboek_app` (least-privilege read/write; use this role for Hyperdrive)
-- PostgreSQL: 17
-- Cloudflare Worker: `dagboek-api`
-- Cloudflare account ID is intentionally not stored in this repository.
+Cloudflare Worker API for DAGBOEK, backed by Neon PostgreSQL through Cloudflare Hyperdrive.
 
-## Security boundary
-- The browser must never connect directly to Neon.
-- Neon credentials must never be committed or exposed in frontend JavaScript.
-- Use Cloudflare Hyperdrive binding `HYPERDRIVE` for PostgreSQL access.
-- Use a dedicated, least-privilege database role for the Worker rather than the owner role after initial provisioning.
-- Supabase production project and its data remain untouched.
+## Current endpoints
 
-## Remaining manual connection step
-Create a Hyperdrive configuration in the Cloudflare dashboard using the Neon connection details, disable query caching for this transactional accounting database, then bind its ID to Worker `dagboek-api` under binding name `HYPERDRIVE`.
+- `GET /health` — Worker liveness check.
+- `GET /api/ready` — confirms the Hyperdrive binding exists.
+- `GET /api/v1/health/db` — runs a read-only PostgreSQL connection check and returns the database name and runtime role.
 
-After the binding is attached, implement and test the API endpoints and migrate the database schema. The existing Supabase migrations must be reviewed and adapted; they are not safe to blindly apply to Neon because Supabase Auth helpers and platform-specific objects are not present in a plain Neon project.
+No accounting tables, authentication flows, or write endpoints are enabled yet. Those will be added only after the existing application data model and authorization rules are mapped and reviewed.
 
-## Current status
-The Worker is a health/readiness scaffold only. It is not yet an operational accounting API. The Neon database is provisioned and verified as PostgreSQL 17; application tables have not been migrated.
+## Local development
 
+1. Install dependencies with `npm ci`.
+2. Run `npm run dev`.
+3. Use a local Hyperdrive configuration or Wrangler local-development settings. Never commit a connection string.
+4. Check `GET /api/v1/health/db`.
 
-The original bootstrap owner login remains an internal legacy role in Neon; application connections should use `dagboek_app` instead.
+## Deployment
+
+Run `npm ci` and `npm run deploy` from this directory after authenticating Wrangler. The Worker uses the Hyperdrive binding configured in `wrangler.jsonc`.
+
+## Security
+
+- Browser clients never receive database credentials.
+- SQL is parameterized through the Postgres.js tagged-template API.
+- The first database endpoint is read-only.
+- Database errors are logged server-side; raw driver errors are not returned to clients.
+- Configure `ALLOWED_ORIGINS` as a Worker variable with exact HTTPS frontend origins before enabling browser requests.
+- Keep the runtime database role separate from the Neon owner role.
