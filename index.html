@@ -4,15 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#324146">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="DAGBOEK">
-  <link rel="manifest" href="./manifest.json">
-  <link rel="icon" type="image/svg+xml" href="./icons/dagboek-icon.svg">
-  <link rel="apple-touch-icon" href="./icons/dagboek-icon.svg">
-  <title>DAGBOEK by Nusa Pixel | Sistem Akuntansi Koperasi Desa</title>
+  <meta name="theme-color" content="#263238">
+  <title>DAGBOEK by Nusa Pixel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -24,10 +17,10 @@
 
   <aside class="sidebar" id="sidebar">
     <div class="brand">
-      <div class="brand-logo">D</div>
+      <div class="brand-logo">K</div>
       <div>
         <h2>DAGBOEK</h2>
-        <p>by NUSA PIXEL · ACCOUNTING SYSTEM</p>
+        <p>by NUSA PIXEL</p>
       </div>
     </div>
 
@@ -66,7 +59,7 @@
         <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
         <div>
           <h2 id="pageTitle">Dashboard</h2>
-          <p>Koperasi Desa</p>
+          <p>Developed by Ahmad Nashirudin</p>
         </div>
       </div>
       <div class="top-actions">
@@ -82,13 +75,13 @@
 
         <div class="welcome">
           <div>
-            <span style="font-size:12px;font-weight:700;color:#a71925;letter-spacing:1px">
+            <span style="font-size:12px;font-weight:700;color:#263238;letter-spacing:1px">
               MANAGEMENT OVERVIEW
             </span>
-            <h1>Dashboard Akuntansi 👋</h1>
+            <h1>Dashboard DAGBOEK 👋</h1>
             <p>
               Pantau kondisi keuangan dan aktivitas operasional
-              Sistem Akuntansi Koperasi Desa.
+              Sistem akuntansi koperasi modern.
             </p>
           </div>
         </div>
@@ -270,7 +263,7 @@
     </div>
 
     <footer>
-      © 2026 DAGBOEK by Nusa Pixel | Accounting System
+      © 2026 DAGBOEK by Nusa Pixel
     </footer>
   </main>
 </div>
@@ -279,13 +272,5 @@
 <script type="module" src="app.js"></script>
 <script type="module" src="utang-piutang.js"></script>
 
-<script>
-  if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js", { scope: "./" })
-        .catch((error) => console.error("DAGBOEK service worker registration failed:", error));
-    });
-  }
-</script>
 </body>
 </html>
