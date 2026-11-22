@@ -1,0 +1,29 @@
+{
+  "id": "./",
+  "name": "DAIBOEK by Nusa Pixel",
+  "short_name": "DAIBOEK",
+  "description": "Sistem Akuntansi Koperasi Desa",
+  "lang": "id-ID",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#07110d",
+  "theme_color": "#07110d",
+  "categories": ["finance", "business", "productivity"],
+  "icons": [
+    {
+      "src": "./icons/daiboek-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/daiboek-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
