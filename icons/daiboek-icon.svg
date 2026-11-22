@@ -1,6 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#07110d"/>
-  <path d="M256 72 370 132v248L256 440 142 380V132z" fill="none" stroke="#25c879" stroke-width="28" stroke-linejoin="round"/>
-  <path d="M256 116v280M172 160h168M172 352h168" fill="none" stroke="#d6f5e4" stroke-width="22" stroke-linecap="round"/>
-  <circle cx="256" cy="256" r="28" fill="#25c879"/>
+  <title>DAIBOEK</title>
+  <rect width="512" height="512" fill="#324146"/>
+  <g fill="#c9c47b">
+    <path d="M95 111h322l-13 32H108z"/>
+    <path d="M128 190 80 238l70 69 46 45V190h-34v142l-37-36 27-27-27-27 27-27z" transform="translate(0 0)"/>
+    <path d="M384 190 432 238l-70 69-46 45V190h34v142l37-36-27-27 27-27-27-27z"/>
+    <path d="M203 154h34v223l-17 17-17-17z"/>
+    <path d="M249 154h34v251l-17 17-17-17z"/>
+    <path d="M295 154h34v223l-17 17-17-17z"/>
+  </g>
 </svg>
