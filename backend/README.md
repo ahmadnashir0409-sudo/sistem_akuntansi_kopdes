@@ -2,30 +2,23 @@
 
 Cloudflare Worker API for DAGBOEK, backed by Neon PostgreSQL through Cloudflare Hyperdrive.
 
-## Current endpoints
+## Deployed service
 
-- `GET /health` — Worker liveness check.
-- `GET /api/ready` — confirms the Hyperdrive binding exists.
-- `GET /api/v1/health/db` — runs a read-only PostgreSQL connection check and returns the database name and runtime role.
+Worker: `dagboek-api`
 
-No accounting tables, authentication flows, or write endpoints are enabled yet. Those will be added only after the existing application data model and authorization rules are mapped and reviewed.
+- `GET /health` — Worker liveness response.
+- `GET /api/ready` — confirms the Hyperdrive binding is attached to the Worker.
 
-## Local development
-
-1. Install dependencies with `npm ci`.
-2. Run `npm run dev`.
-3. Use a local Hyperdrive configuration or Wrangler local-development settings. Never commit a connection string.
-4. Check `GET /api/v1/health/db`.
+The current `/api/ready` check verifies the binding exists; it does not yet run a live SQL query. Database query endpoints, authentication, accounting routes, and schema migrations are not yet implemented.
 
 ## Deployment
 
-Run `npm ci` and `npm run deploy` from this directory after authenticating Wrangler. The Worker uses the Hyperdrive binding configured in `wrangler.jsonc`.
+The initial Worker deployment was performed through the authorized Cloudflare connection. Future CI/CD deployment can be configured separately if desired.
 
 ## Security
 
 - Browser clients never receive database credentials.
-- SQL is parameterized through the Postgres.js tagged-template API.
-- The first database endpoint is read-only.
-- Database errors are logged server-side; raw driver errors are not returned to clients.
-- Configure `ALLOWED_ORIGINS` as a Worker variable with exact HTTPS frontend origins before enabling browser requests.
+- The Worker receives database connectivity only through the Hyperdrive binding.
+- No accounting write endpoints are exposed in this initial deployment.
 - Keep the runtime database role separate from the Neon owner role.
+- Do not commit connection strings, API tokens, or passwords.
