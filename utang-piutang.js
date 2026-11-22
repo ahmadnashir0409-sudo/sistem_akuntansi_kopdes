@@ -1,5 +1,5 @@
 
-const dbARAP = window.kdmpSupabase;
+const dbARAP = window.daiboekSupabase;
 
 const arapStyle = document.createElement("style");
 arapStyle.textContent = `
@@ -9,7 +9,7 @@ arapStyle.textContent = `
 .arap-card strong{font-size:19px;overflow-wrap:anywhere}
 .arap-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 .arap-tabs button{border:1px solid #ddd;background:white;padding:10px 15px;border-radius:8px;cursor:pointer;font-weight:bold}
-.arap-tabs button.active{background:#a71925;color:white;border-color:#a71925}
+.arap-tabs button.active{background:#00a968;color:white;border-color:#00a968}
 .arap-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
 .arap-form-grid label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}
 .arap-form-grid input,.arap-form-grid select{width:100%;box-sizing:border-box;padding:11px;border:1px solid #ddd;border-radius:7px}
@@ -17,7 +17,7 @@ arapStyle.textContent = `
 .arap-status.lunas{background:#e8f7ed;color:#18743b}
 .arap-status.sebagian{background:#eaf2ff;color:#2459a6}
 .arap-actions{display:flex;gap:8px;flex-wrap:wrap}
-.arap-small-btn{border:0;background:#a71925;color:white;padding:7px 10px;border-radius:6px;cursor:pointer}
+.arap-small-btn{border:0;background:#00a968;color:white;padding:7px 10px;border-radius:6px;cursor:pointer}
 .arap-small-btn:disabled{opacity:.5}
 .arap-message{font-size:13px;margin:12px 0}
 @media(max-width:650px){.arap-cards{grid-template-columns:1fr}.arap-form-grid{grid-template-columns:1fr}}
