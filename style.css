@@ -1,11 +1,11 @@
 
-/* KDMP ERP - Pendowo Asri
+/* DAIBOEK by Nusa Pixel - Sistem Akuntansi Koperasi Desa
    Stylesheet utama + modul akuntansi dan rekonsiliasi bank
 */
 
 :root {
-  --red: #b91c2c;
-  --dark: #851522;
+  --red: #00e887;
+  --dark: #07110d;
   --bg: #f5f6fa;
   --white: #ffffff;
   --text: #252a34;
@@ -117,7 +117,7 @@ button {
 
 .menu button:hover,
 .menu button.active {
-  background: #fff0f1;
+  background: #e5fff3;
   color: var(--red);
 }
 
@@ -532,7 +532,7 @@ footer {
 .login-logo {
   width: 58px;
   height: 58px;
-  background: #a71925;
+  background: #00a968;
   color: #fff;
   border-radius: 14px;
   display: flex;
@@ -590,7 +590,7 @@ footer {
 }
 
 #loginError {
-  color: #b91c2c;
+  color: #00a968;
   font-size: 13px;
   margin-top: 14px;
 }
@@ -1204,7 +1204,7 @@ footer {
 .about-brand-credit span{color:#858b98;min-width:115px}
 .about-brand-credit strong{color:#252a34}
 .about-brand-footer{margin:14px 0 0;color:#9298a3;font-size:11px;font-style:italic}
-body[data-kdmp-theme="dark"] .about-brand-card{background:linear-gradient(135deg,#202633 0%,#2b222b 100%);border-color:#45404b}
+body[data-kdmp-theme="dark"] .about-brand-card{background:linear-gradient(135deg,#202633 0%,#2b222b 100%);border-color:#244b38}
 body[data-kdmp-theme="dark"] .about-brand-content h3,body[data-kdmp-theme="dark"] .about-brand-credit strong{color:#edf0f5}
 body[data-kdmp-theme="dark"] .about-brand-description{color:#c0c7d2}
 body[data-kdmp-theme="dark"] .about-brand-divider{background:#45404b}
@@ -1212,13 +1212,13 @@ body[data-kdmp-theme="dark"] .about-brand-divider{background:#45404b}
 
 
 
-/* DAGBOEK by Nusa Pixel — modern classic enterprise identity */
+/* DAIBOEK by Nusa Pixel — black & neon green identity */
 :root{
-  --dagboek-charcoal:#172033;
-  --dagboek-charcoal-soft:#222d43;
-  --dagboek-gold:#c7a65b;
-  --dagboek-gold-light:#e4cf98;
-  --dagboek-ivory:#f5f3ed;
+  --dagboek-charcoal:#07110d;
+  --dagboek-charcoal-soft:#10231a;
+  --dagboek-gold:#00e887;
+  --dagboek-gold-light:#8fffc9;
+  --dagboek-ivory:#0b1510;
 }
 body{font-family:"Inter",Arial,sans-serif;background:var(--dagboek-ivory)}
 .brand h2,.topbar h2,.welcome h1,.panel-header h3{font-family:"Playfair Display",Georgia,serif}
@@ -1284,7 +1284,7 @@ body[data-kdmp-theme="dark"] .settings-card p,
 body[data-kdmp-theme="dark"] .report-description{color:#aab4c6}
 body[data-kdmp-theme="dark"] .erp-button.secondary,
 body[data-kdmp-theme="dark"] .settings-btn.secondary{background:#303d55;color:#e9edf5}
-body[data-kdmp-theme="dark"] .about-brand-card{background:#202b40;border-color:#3a4861}
+body[data-kdmp-theme="dark"] .about-brand-card{background:#10231a;border-color:#3a4861}
 body[data-kdmp-theme="dark"] .about-brand-content h3,
 body[data-kdmp-theme="dark"] .about-brand-credit strong{color:#edf0f5}
 body[data-kdmp-theme="dark"] .about-brand-description{color:#c0c7d2}
