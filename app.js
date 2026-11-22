@@ -31,16 +31,16 @@ const style = document.createElement("style");
 style.textContent = `
 #loginScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:#f5f6fa;font-family:Arial,sans-serif}
 .login-card{width:100%;max-width:410px;background:white;padding:35px;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.08)}
-.login-logo{width:58px;height:58px;background:#00a968;color:white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;margin-bottom:20px}
+.login-logo{width:58px;height:58px;background:#a71925;color:white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;margin-bottom:20px}
 .login-card h2{color:#222;margin:0 0 8px}.login-card p{color:#777;font-size:14px;margin-bottom:25px}
 .login-card label{display:block;font-size:13px;font-weight:bold;margin:15px 0 7px;color:#444}
 .login-card input{width:100%;box-sizing:border-box;padding:13px;border:1px solid #ddd;border-radius:8px;font-size:15px}
-.login-card button{width:100%;padding:14px;margin-top:22px;border:none;border-radius:8px;background:#00a968;color:white;font-size:15px;font-weight:bold;cursor:pointer}
-.login-card button:disabled{opacity:.6;cursor:wait}#loginError{color:#00a968;font-size:13px;margin-top:14px}
+.login-card button{width:100%;padding:14px;margin-top:22px;border:none;border-radius:8px;background:#a71925;color:white;font-size:15px;font-weight:bold;cursor:pointer}
+.login-card button:disabled{opacity:.6;cursor:wait}.login-card .login-link-button{margin-top:10px;background:transparent;color:#8b7137;border:0;font-size:12px;text-decoration:underline;padding:6px}#loginError{color:#b91c2c;font-size:13px;margin-top:14px}#passwordRecoveryPanel h3{margin:10px 0;color:#202a3c}#passwordRecoveryPanel p{margin:0 0 12px}#passwordRecoveryMessage{font-size:13px;margin-top:12px;color:#8b7137}
 #logoutButton{border:1px solid #ddd;background:white;padding:8px 12px;border-radius:7px;cursor:pointer;margin-left:15px}
 .erp-content{margin-top:25px;width:100%}
 .erp-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-.erp-button{background:#00a968;color:white;border:0;padding:11px 16px;border-radius:8px;cursor:pointer;font-weight:600}
+.erp-button{background:#a71925;color:white;border:0;padding:11px 16px;border-radius:8px;cursor:pointer;font-weight:600}
 .erp-button:disabled{opacity:.6;cursor:wait}.erp-button.secondary{background:#eee;color:#444}
 .erp-form{display:none;background:white;border:1px solid #eee;border-radius:12px;padding:20px;margin-bottom:20px}
 .erp-form h3{margin-top:0}.erp-field label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px;color:#555}
@@ -50,13 +50,13 @@ style.textContent = `
 .erp-table{width:100%;border-collapse:collapse;min-width:650px}
 .erp-table th,.erp-table td{padding:13px 15px;text-align:left;border-bottom:1px solid #eee;font-size:13px;white-space:nowrap}
 .erp-table th{background:#fafafa;color:#555}.erp-table tr:last-child td{border-bottom:0}
-.erp-message{font-size:13px;margin:12px 0}.erp-error{color:#00a968}.erp-success{color:#18743b}
+.erp-message{font-size:13px;margin:12px 0}.erp-error{color:#b91c2c}.erp-success{color:#18743b}
 .erp-muted{color:#777;font-size:13px}.erp-actions{display:flex;gap:10px;margin-top:18px}
 .erp-actions button{border:0;border-radius:7px;padding:11px 16px;cursor:pointer;font-weight:bold}
 .erp-status{display:inline-block;padding:5px 9px;border-radius:20px;background:#e8f7ed;color:#18743b;font-size:11px;font-weight:bold}
 .journal-line{display:grid;grid-template-columns:1.1fr 1.5fr 1fr 1fr auto;gap:9px;align-items:end;padding:12px 0;border-bottom:1px solid #eee}
 .journal-line .erp-field{min-width:0}.journal-line input,.journal-line select{min-width:0;width:100%;box-sizing:border-box}
-.journal-remove{border:0;background:#fee;color:#00a968;padding:10px;border-radius:7px;cursor:pointer}
+.journal-remove{border:0;background:#fee;color:#a71925;padding:10px;border-radius:7px;cursor:pointer}
 .journal-totals{display:flex;justify-content:flex-end;gap:25px;flex-wrap:wrap;margin-top:18px;font-size:14px}
 .journal-total{font-weight:bold}.journal-balance{margin-top:12px;font-size:13px;font-weight:bold}
 .financial-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:20px}
@@ -64,7 +64,7 @@ style.textContent = `
 .financial-card small{color:#777;display:block;margin-bottom:9px}.financial-card strong{font-size:20px;color:#222}
 .financial-tabs{display:flex;gap:10px;margin-bottom:18px}
 .financial-tabs button{border:1px solid #ddd;background:white;color:#555;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:bold}
-.financial-tabs button.active{background:#00a968;color:white;border-color:#00a968}
+.financial-tabs button.active{background:#a71925;color:white;border-color:#a71925}
 .financial-note{background:#fff8e8;border:1px solid #f1dfb7;color:#75551c;padding:12px;border-radius:8px;font-size:12px;margin-bottom:16px}
 .ledger-filter{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:12px;align-items:end;background:white;border:1px solid #eee;border-radius:12px;padding:18px;margin-bottom:20px}
 .ledger-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:20px}
@@ -77,15 +77,15 @@ style.textContent = `
 .report-card small{display:block;color:#777;margin-bottom:9px}
 .report-card strong{font-size:20px;color:#222;overflow-wrap:anywhere}
 .report-card.profit{border-left:4px solid #18743b}
-.report-card.loss{border-left:4px solid #00a968}
+.report-card.loss{border-left:4px solid #b91c2c}
 .report-section-title{margin:25px 0 12px;font-size:16px}
 .report-total-row{font-weight:bold;background:#fafafa}
 .report-empty{padding:18px;text-align:center;color:#777}
-.journal-detail-button{border:1px solid #00a968;background:#fff;color:#00a968;padding:7px 10px;border-radius:7px;cursor:pointer;font-weight:600;font-size:12px}
+.journal-detail-button{border:1px solid #a71925;background:#fff;color:#a71925;padding:7px 10px;border-radius:7px;cursor:pointer;font-weight:600;font-size:12px}
 .journal-detail-button:hover{background:#fff4f4}
 .ledger-clickable-row{cursor:pointer}
 .ledger-clickable-row:hover{background:#fff7f7}
-.ledger-clickable-row:focus{outline:2px solid #00a968;outline-offset:-2px}
+.ledger-clickable-row:focus{outline:2px solid #a71925;outline-offset:-2px}
 .ledger-clickable-row td:last-child{white-space:nowrap}
 
 .journal-detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:99999;display:flex;align-items:center;justify-content:center;padding:18px}
@@ -116,7 +116,7 @@ const balanceAccountDetailStyle=document.createElement("style");
 balanceAccountDetailStyle.textContent=`
 .balance-account-clickable{cursor:pointer}
 .balance-account-clickable:hover{background:#fff5f5}
-.balance-account-clickable:focus{outline:2px solid #00a968;outline-offset:-2px}
+.balance-account-clickable:focus{outline:2px solid #a71925;outline-offset:-2px}
 .balance-detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99998;display:flex;align-items:center;justify-content:center;padding:16px}
 .balance-detail-dialog{width:min(1050px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:14px;padding:22px;box-shadow:0 15px 50px rgba(0,0,0,.2)}
 .balance-detail-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:15px}
@@ -200,7 +200,7 @@ dashboardStyle.textContent = `
   display:inline-block;
 }
 .dashboard-error {
-  color:#00a968;
+  color:#b91c2c;
   font-size:13px;
   padding:12px 0;
 }
@@ -390,13 +390,22 @@ loginScreen.id = "loginScreen";
 loginScreen.innerHTML = `
   <div class="login-card">
     <div class="login-logo">D</div>
-    <h2>DAGBOEK</h2>
-    <p>by NUSA PIXEL · ACCOUNTING SYSTEM</p>
+    <h2>KDMP</h2>
+    <p>by NUSA PIXEL · Cooperative Management System</p>
     <form id="loginForm">
       <label>Email</label><input type="email" id="loginEmail" required autocomplete="username">
       <label>Password</label><input type="password" id="loginPassword" required autocomplete="current-password">
       <button type="submit" id="loginButton">Masuk ke Sistem</button>
+      <button type="button" id="forgotPasswordBtn" class="login-link-button">Lupa password? Kirim tautan reset</button>
       <div id="loginError" role="alert"></div>
+    </form>
+    <form id="passwordRecoveryPanel" hidden>
+      <h3>Buat Password Baru</h3>
+      <p>Gunakan password pribadi yang kuat untuk akun KDMP.</p>
+      <label>Password Baru</label><input type="password" id="newAccountPassword" minlength="10" required autocomplete="new-password">
+      <label>Ulangi Password Baru</label><input type="password" id="confirmAccountPassword" minlength="10" required autocomplete="new-password">
+      <button type="submit" id="updatePasswordButton">Simpan Password Baru</button>
+      <div id="passwordRecoveryMessage" role="alert"></div>
     </form>
   </div>`;
 document.body.prepend(loginScreen);
@@ -407,6 +416,69 @@ if (layout) layout.style.display = "none";
 const loginForm = document.getElementById("loginForm");
 const loginButton = document.getElementById("loginButton");
 const loginError = document.getElementById("loginError");
+const passwordRecoveryPanel=document.getElementById("passwordRecoveryPanel");
+const passwordRecoveryMessage=document.getElementById("passwordRecoveryMessage");
+const forgotPasswordButton=document.getElementById("forgotPasswordBtn");
+
+function showPasswordRecoveryPanel(){
+  loginScreen.style.display="flex";
+  if(layout)layout.style.display="none";
+  loginForm.hidden=true;
+  passwordRecoveryPanel.hidden=false;
+  passwordRecoveryMessage.textContent="";
+}
+
+forgotPasswordButton.addEventListener("click",async()=>{
+  const email=document.getElementById("loginEmail").value.trim();
+  if(!email){loginError.textContent="Masukkan email akun terlebih dahulu.";document.getElementById("loginEmail").focus();return;}
+  forgotPasswordButton.disabled=true;
+  forgotPasswordButton.textContent="Mengirim tautan...";
+  loginError.textContent="";
+  try{
+    const redirectTo=window.location.origin+window.location.pathname;
+    const {error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo});
+    if(error)throw error;
+    loginError.textContent="Tautan reset password telah dikirim. Periksa Inbox dan folder Spam.";
+    loginError.style.color="#159765";
+  }catch(error){
+    loginError.textContent=error.message||"Gagal mengirim tautan reset password.";
+    loginError.style.color="#b91c2c";
+  }finally{
+    forgotPasswordButton.disabled=false;
+    forgotPasswordButton.textContent="Lupa password? Kirim tautan reset";
+  }
+});
+
+passwordRecoveryPanel.addEventListener("submit",async event=>{
+  event.preventDefault();
+  const password=document.getElementById("newAccountPassword").value;
+  const confirmPassword=document.getElementById("confirmAccountPassword").value;
+  if(password.length<10){passwordRecoveryMessage.textContent="Password minimal 10 karakter.";return;}
+  if(password!==confirmPassword){passwordRecoveryMessage.textContent="Konfirmasi password tidak sama.";return;}
+  const button=document.getElementById("updatePasswordButton");
+  button.disabled=true;button.textContent="Menyimpan...";
+  passwordRecoveryMessage.textContent="";
+  try{
+    const {error}=await supabaseClient.auth.updateUser({password});
+    if(error)throw error;
+    await supabaseClient.auth.signOut();
+    window.history.replaceState({},document.title,window.location.pathname+window.location.search);
+    passwordRecoveryPanel.hidden=true;
+    loginForm.hidden=false;
+    document.getElementById("newAccountPassword").value="";
+    document.getElementById("confirmAccountPassword").value="";
+    loginError.textContent="Password berhasil diperbarui. Silakan masuk.";
+    loginError.style.color="#159765";
+  }catch(error){
+    passwordRecoveryMessage.textContent=error.message||"Gagal memperbarui password.";
+  }finally{
+    button.disabled=false;button.textContent="Simpan Password Baru";
+  }
+});
+
+supabaseClient.auth.onAuthStateChange(event=>{
+  if(event==="PASSWORD_RECOVERY")showPasswordRecoveryPanel();
+});
 
 loginForm.addEventListener("submit", async event => {
   event.preventDefault();
@@ -454,6 +526,7 @@ async function loadUserProfile(user) {
   }
   if (avatar) avatar.textContent = profile.nama_lengkap.charAt(0).toUpperCase();
   addLogoutButton();
+  initDabuAssistant();
   applyRoleMenuVisibility();
   const allowedPages=KDMP_ROLE_PAGES[profile.role]||["dashboard","rumus-kamus"];
   const defaultPage=allowedPages.includes("dashboard")?"dashboard":(allowedPages[0]||"dashboard");
@@ -2026,6 +2099,9 @@ async function saveBankMutation() {
     return;
   }
 
+  target.scrollIntoView({behavior:"smooth",block:"start"});
+  target.innerHTML = '<div class="erp-card"><h3>Rincian Mutasi Rekonsiliasi</h3><p>Memuat periode dan daftar mutasi...</p></div>';
+
   const { data: header, error: headerError } = await client
     .from("bank_reconciliations")
     .select("id")
@@ -2137,8 +2213,8 @@ async function loadBankReconciliations() {
               <td>${formatRupiah(item.difference)}</td>
               <td>${item.status === "balanced" ? "Seimbang" : "Belum seimbang"}</td>
               <td>
-                <button class="btn-secondary"
-                  onclick="loadBankMutations('${item.id}')">
+                <button type="button" class="btn-secondary bank-history-view"
+                  data-reconciliation-id="${escapeHTML(item.id)}">
                   Lihat
                 </button>
               </td>
@@ -2150,6 +2226,20 @@ async function loadBankReconciliations() {
       </table>
     </div>
   `;
+  target.querySelectorAll(".bank-history-view").forEach(button=>{
+    button.addEventListener("click",async()=>{
+      const reconciliationId=button.dataset.reconciliationId;
+      button.disabled=true;
+      const originalLabel=button.textContent;
+      button.textContent="Memuat...";
+      try{
+        await loadBankMutations(reconciliationId);
+      }finally{
+        button.disabled=false;
+        button.textContent=originalLabel;
+      }
+    });
+  });
 }
 
 async function loadBankMutations(reconciliationId) {
@@ -2205,6 +2295,11 @@ async function loadBankMutations(reconciliationId) {
 
   const rupiah = value => formatRupiah(value);
   target.innerHTML = `
+    <div class="erp-card">
+      <h3>Rincian Mutasi Rekonsiliasi</h3>
+      <p>Periode: <strong>${escapeHTML(header.period_start)} s/d ${escapeHTML(header.period_end)}</strong></p>
+      <p>Jumlah mutasi: <strong>${(items||[]).length}</strong></p>
+    </div>
     <div class="table-responsive">
       <table class="erp-table">
         <thead>
@@ -2357,6 +2452,8 @@ window.showPage = function(page, button) {
 // PERIKSA SESSION
 // ==========================================
 async function checkLoginSession() {
+  const authHash=new URLSearchParams(window.location.hash.replace(/^#/,""));
+  if(["recovery","invite"].includes(authHash.get("type"))){showPasswordRecoveryPanel();return;}
   const {data,error}=await supabaseClient.auth.getSession();
   if(error){loginError.textContent="Tidak dapat memeriksa sesi login.";return;}
   if(data.session)await loadUserProfile(data.session.user);
@@ -2364,7 +2461,7 @@ async function checkLoginSession() {
 checkLoginSession();
 
 // =============================================
-// MODUL INVOICE KOPERASI DESA
+// MODUL INVOICE KDMP PENDOWO ASRI
 // =============================================
 
 let invoiceRows = [];
@@ -2392,13 +2489,13 @@ invoiceStyle.textContent = `
 .invoice-items select{min-width:230px}.inv-stock-info{display:block;color:#687386;font-size:11px;margin-top:5px}.inv-stock-info.low{color:#b42318;font-weight:bold}
 .invoice-total{text-align:right;margin-top:16px;font-weight:bold;font-size:18px}
 .invoice-action{border:0;border-radius:7px;padding:9px 13px;cursor:pointer;font-weight:bold}
-.invoice-primary{background:#00a968;color:#fff}
+.invoice-primary{background:#a71925;color:#fff}
 .invoice-secondary{background:#f1f1f1;color:#444}
-.invoice-danger{background:#fee;color:#00a968}
+.invoice-danger{background:#fee;color:#a71925}
 .invoice-status{padding:5px 9px;border-radius:20px;background:#f1f1f1;font-size:11px}
 .invoice-status.paid{background:#e8f7ed;color:#18743b}
 .invoice-status.sent{background:#eaf2ff;color:#2860a8}
-.invoice-status.overdue{background:#fee;color:#00a968}
+.invoice-status.overdue{background:#fee;color:#a71925}
 .invoice-message{font-size:13px;margin-top:12px}
 .invoice-payment-box{margin-top:22px;padding:16px;border:1px solid #eee;border-radius:10px;background:#fafafa}
 .invoice-payment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -3073,7 +3170,7 @@ async function showInvoiceDetail(id) {
   <div id="invoicePrintArea">
    <div style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap">
     <div>
-     <h2 style="color:#00a968;margin-bottom:5px">KOPERASI DESA</h2>
+     <h2 style="color:#a71925;margin-bottom:5px">KDMP PENDOWO ASRI</h2>
      <p>INVOICE / FAKTUR TAGIHAN</p>
     </div>
     <div>
@@ -3647,7 +3744,7 @@ window.showPage=function(page,button){
 };
 
 // ==========================================
-// MODUL TRANSAKSI TOKO - KOPERASI DESA
+// MODUL TRANSAKSI TOKO - KDMP PENDOWO ASRI
 // ==========================================
 
 const tokoStyle = document.createElement("style");
@@ -3663,12 +3760,12 @@ tokoStyle.textContent = `
 .toko-table th{background:#fafafa}
 .toko-table input{width:100%;box-sizing:border-box;padding:9px;border:1px solid #ddd;border-radius:6px}
 .toko-total{display:flex;justify-content:space-between;padding:8px 0}
-.toko-grand-total{font-size:22px;font-weight:800;color:#00a968}
+.toko-grand-total{font-size:22px;font-weight:800;color:#a71925}
 .toko-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
 .toko-stat{background:white;border:1px solid #eee;border-radius:10px;padding:16px}
 .toko-stat small{display:block;color:#777;margin-bottom:7px}
 .toko-stat strong{font-size:19px}
-.toko-btn{border:0;border-radius:7px;padding:10px 15px;background:#00a968;color:white;font-weight:600;cursor:pointer}
+.toko-btn{border:0;border-radius:7px;padding:10px 15px;background:#a71925;color:white;font-weight:600;cursor:pointer}
 .toko-btn.secondary{background:#eee;color:#333}
 .toko-btn.danger{background:#fee2e2;color:#991b1b}
 .toko-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
@@ -3681,7 +3778,7 @@ tokoStyle.textContent = `
 .toko-status.diproses{background:#fef3c7;color:#92400e}
 .toko-status.gagal{background:#fee2e2;color:#991b1b}
 .toko-status.dibatalkan{background:#eee;color:#555}
-.toko-btn.cancel-sale{background:#fff0f0;color:#00a968;border:1px solid #e7b7bc}.toko-btn.cancel-sale:disabled{opacity:.55;cursor:wait}
+.toko-btn.cancel-sale{background:#fff0f0;color:#a71925;border:1px solid #e7b7bc}.toko-btn.cancel-sale:disabled{opacity:.55;cursor:wait}
 @media(max-width:650px){
  .toko-grid{grid-template-columns:1fr}
  .toko-stat-grid{grid-template-columns:1fr}
@@ -3705,7 +3802,7 @@ function setupToko(){
     <div class="erp-toolbar">
       <div>
         <h3>Kasir Transaksi Toko</h3>
-        <p class="erp-muted">Pencatatan penjualan dan pembayaran Koperasi Desa.</p>
+        <p class="erp-muted">Pencatatan penjualan dan pembayaran KDMP Pendowo Asri.</p>
       </div>
     </div>
 
@@ -4312,7 +4409,7 @@ function printTokoReceipt(sale,items){
       </style>
     </head>
     <body>
-      <h2>KOPERASI DESA</h2>
+      <h2>KDMP PENDOWO ASRI</h2>
       <p>Struk Penjualan</p>
       <hr>
       <p style="text-align:left">No: ${escapeHTML(sale.sale_number)}</p>
@@ -4355,7 +4452,7 @@ window.showPage=function(page,button){
 document.getElementById("operationalMenuButton")?.remove();
 
 // ==========================================
-// MODUL DATA ANGGOTA KOPERASI DESA
+// MODUL DATA ANGGOTA KDMP PENDOWO ASRI
 // ==========================================
 
 const memberStyle = document.createElement("style");
@@ -4374,7 +4471,7 @@ memberStyle.textContent = `
   border-radius:7px;font:inherit;background:white
 }
 .member-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.member-btn{border:0;border-radius:7px;padding:10px 15px;background:#00a968;color:white;font-weight:600;cursor:pointer}
+.member-btn{border:0;border-radius:7px;padding:10px 15px;background:#a71925;color:white;font-weight:600;cursor:pointer}
 .member-btn.gray{background:#eee;color:#333}
 .member-btn:disabled{opacity:.6;cursor:not-allowed}
 .member-search{max-width:360px;width:100%;padding:11px;border:1px solid #ddd;border-radius:7px}
@@ -4410,7 +4507,7 @@ function setupMemberManagement(){
       <div class="erp-toolbar">
         <div>
           <h3>Data Anggota Koperasi</h3>
-          <p class="erp-muted">Kelola identitas dan status keanggotaan Koperasi Desa.</p>
+          <p class="erp-muted">Kelola identitas dan status keanggotaan KDMP Pendowo Asri.</p>
         </div>
         <button class="member-btn" id="memberAddButton">+ Tambah Anggota</button>
       </div>
@@ -4820,7 +4917,7 @@ savingsStyle.textContent = `
  width:100%;box-sizing:border-box;padding:11px;border:1px solid #ddd;
  border-radius:7px;font:inherit;background:white
 }
-.sav-btn{border:0;border-radius:7px;padding:10px 15px;background:#00a968;color:white;font-weight:600;cursor:pointer}
+.sav-btn{border:0;border-radius:7px;padding:10px 15px;background:#a71925;color:white;font-weight:600;cursor:pointer}
 .sav-btn.gray{background:#eee;color:#333}
 .sav-btn:disabled{opacity:.6;cursor:not-allowed}
 .sav-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
@@ -5272,7 +5369,7 @@ loanStyle.textContent = `
 .loan-field{margin-bottom:13px}
 .loan-field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:#555}
 .loan-field input,.loan-field select,.loan-field textarea{width:100%;box-sizing:border-box;padding:11px;border:1px solid #ddd;border-radius:7px;font:inherit;background:white}
-.loan-btn{border:0;border-radius:7px;padding:10px 15px;background:#00a968;color:white;font-weight:600;cursor:pointer;margin:2px}
+.loan-btn{border:0;border-radius:7px;padding:10px 15px;background:#a71925;color:white;font-weight:600;cursor:pointer;margin:2px}
 .loan-btn.gray{background:#eee;color:#333}
 .loan-btn.green{background:#16834e}
 .loan-btn:disabled{opacity:.6;cursor:not-allowed}
@@ -6363,7 +6460,7 @@ savingsMenuStyle.textContent = `
   box-shadow:0 2px 8px rgba(0,0,0,.035);
 }
 .simpanan-menu-card:hover{
-  border-color:#00a968;
+  border-color:#a71925;
   transform:translateY(-2px);
   box-shadow:0 5px 15px rgba(167,25,37,.10);
 }
@@ -6626,7 +6723,7 @@ managerDashboardStyle.textContent = `
   margin-top:8px;
 }
 .manager-info-card.warning .manager-info-value {
-  color:#00a968;
+  color:#b91c2c;
 }
 .manager-dashboard-message {
   font-size:12px;
@@ -6803,7 +6900,7 @@ async function loadManagerDashboardCards() {
     if (messageElement) {
       messageElement.textContent =
         "Monitoring gagal dimuat: " + (error.message || "Periksa koneksi database.");
-      messageElement.style.color = "#00a968";
+      messageElement.style.color = "#b91c2c";
     }
   }
 }
@@ -6847,7 +6944,7 @@ pendingLoanStyle.textContent = `
 }
 .pending-loan-count {
   background:#fff1f2;
-  color:#00a968;
+  color:#b91c2c;
   padding:6px 11px;
   border-radius:20px;
   font-size:12px;
@@ -6873,12 +6970,12 @@ pendingLoanStyle.textContent = `
 }
 .pending-loan-amount {
   font-weight:700;
-  color:#00a968;
+  color:#b91c2c;
   margin-bottom:8px;
   text-align:right;
 }
 .pending-loan-button {
-  background:#00a968;
+  background:#b91c2c;
   color:white;
   border:0;
   padding:8px 12px;
@@ -7023,7 +7120,7 @@ async function loadPendingLoanNotifications() {
     badge.textContent = "Gagal memuat";
 
     list.innerHTML = `
-      <div class="pending-loan-empty" style="color:#00a968">
+      <div class="pending-loan-empty" style="color:#b91c2c">
         Gagal membaca pengajuan: ${escapeHTML(error.message)}
       </div>
     `;
@@ -7055,7 +7152,7 @@ if (document.readyState === "loading") {
 }
 
 /* ==================================================
-   PUSAT PENARIKAN DATA - KOPERASI DESA
+   PUSAT PENARIKAN DATA - KDMP PENDOWO ASRI
    Lokasi: Monitoring Manajer
    Format: Excel XLSX
 ================================================== */
@@ -7117,7 +7214,7 @@ exportCenterStyle.textContent = `
 }
 .export-button {
   margin-top:20px;
-  background:#00a968;
+  background:#a71925;
   color:white;
   border:0;
   border-radius:8px;
@@ -7137,7 +7234,7 @@ exportCenterStyle.textContent = `
   line-height:1.6;
 }
 .export-message.success {color:#16834e}
-.export-message.error {color:#00a968}
+.export-message.error {color:#b91c2c}
 @media(max-width:650px) {
   .export-grid {grid-template-columns:1fr}
   .export-center {padding:17px}
@@ -7647,7 +7744,7 @@ window.showPage = function(page,button) {
 
 /* =====================================================
    MODUL PERSEDIAAN BARANG
-   KOPERASI DESA
+   KDMP PENDOWO ASRI
 ===================================================== */
 
 const inventoryStyle = document.createElement("style");
@@ -7670,7 +7767,7 @@ inventoryStyle.textContent = `
 }
 .inventory-field textarea{min-height:65px}
 .inventory-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.inventory-btn{border:0;border-radius:8px;padding:10px 15px;background:#00a968;color:white;font-weight:650;cursor:pointer}
+.inventory-btn{border:0;border-radius:8px;padding:10px 15px;background:#a71925;color:white;font-weight:650;cursor:pointer}
 .inventory-btn.gray{background:#eee;color:#333}
 .inventory-btn:disabled{opacity:.6;cursor:wait}
 .inventory-search{max-width:350px;width:100%;padding:11px;border:1px solid #ddd;border-radius:7px}
@@ -7705,7 +7802,7 @@ inventoryStyle.textContent = `
 .inventory-badge{padding:5px 9px;border-radius:20px;background:#e8f8ef;color:#16834e;font-size:11px;font-weight:700}
 .inventory-badge.low{background:#fff0d9;color:#a45b00}
 .inventory-message{font-size:13px;margin-top:12px;line-height:1.5}
-.inventory-error{color:#00a968}
+.inventory-error{color:#b91c2c}
 .inventory-success{color:#16834e}
 .inventory-hidden{display:none!important}
 @media(max-width:900px){
@@ -8576,9 +8673,9 @@ debtReceivableStyle.textContent = `
 .debt-table th{background:#fafafa;color:#555}
 .debt-status{display:inline-block;padding:5px 9px;border-radius:20px;background:#fff0e6;color:#a34b12;font-size:11px;font-weight:700}
 .debt-status.partial{background:#fff4d8;color:#8a5a00}
-.debt-status.overdue{background:#fee;color:#00a968}
+.debt-status.overdue{background:#fee;color:#a71925}
 .debt-status.paid{background:#e8f7ed;color:#18743b}
-.debt-btn{border:0;border-radius:7px;padding:8px 11px;background:#00a968;color:#fff;font-weight:600;cursor:pointer}
+.debt-btn{border:0;border-radius:7px;padding:8px 11px;background:#a71925;color:#fff;font-weight:600;cursor:pointer}
 .debt-muted{color:#777;font-size:13px}
 @media(max-width:700px){.debt-summary{grid-template-columns:1fr}.debt-panel{padding:13px}}
 `;
@@ -8709,7 +8806,7 @@ kdmpSettingsStyle.textContent=`
 #inviteUserMessage.error{color:#b42318}
 .settings-btn:disabled{opacity:.6;cursor:wait}
 .settings-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:8px}
-.settings-btn{border:0;border-radius:8px;padding:10px 15px;background:#00a968;color:#fff;font-weight:700;font-size:12px;cursor:pointer}
+.settings-btn{border:0;border-radius:8px;padding:10px 15px;background:#a71925;color:#fff;font-weight:700;font-size:12px;cursor:pointer}
 .settings-btn.secondary{background:#eef0f3;color:#4d5562}
 .settings-logo-preview{width:76px;height:76px;border:1px dashed #cbd0d8;border-radius:12px;display:grid;place-items:center;overflow:hidden;background:#fafafa;color:#888;font-size:11px;margin-bottom:10px}
 .settings-logo-preview img{width:100%;height:100%;object-fit:contain}
@@ -8720,7 +8817,7 @@ kdmpSettingsStyle.textContent=`
 .settings-theme-state small{display:block;color:#858b98;margin-top:2px;font-size:11px}
 .settings-theme-switch{position:relative;flex:0 0 46px;width:46px;height:26px;border:0;border-radius:20px;background:#c5cad2;padding:0;cursor:pointer;transition:background .2s ease}
 .settings-theme-switch::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:transform .2s ease}
-.settings-theme-switch[aria-checked="true"]{background:#00a968}
+.settings-theme-switch[aria-checked="true"]{background:#a71925}
 .settings-theme-switch[aria-checked="true"]::after{transform:translateX(20px)}
 .settings-theme-switch:focus-visible{outline:3px solid #e6a0a7;outline-offset:3px}
 #settingsMessage{font-size:12px;margin-top:10px;min-height:17px}
@@ -8781,11 +8878,11 @@ body[data-kdmp-theme="dark"] .inventory-stock-closing{color:#166534!important}
 const aboutBrandStyle=document.createElement("style");
 aboutBrandStyle.textContent=`
 .about-brand-card{display:flex;align-items:flex-start;gap:18px;overflow:hidden;position:relative;background:linear-gradient(135deg,#fff 0%,#fff8f8 100%);border-color:#f0d9dc}
-.about-brand-mark{flex:0 0 58px;width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#00a968,#761421);color:#fff;font-size:29px;font-weight:800;box-shadow:0 8px 20px rgba(137,20,34,.18)}
+.about-brand-mark{flex:0 0 58px;width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#b91c2c,#761421);color:#fff;font-size:29px;font-weight:800;box-shadow:0 8px 20px rgba(137,20,34,.18)}
 .about-brand-content{min-width:0}
-.about-brand-eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:800;color:#00a968}
+.about-brand-eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:800;color:#a71925}
 .about-brand-content h3{font-size:25px;letter-spacing:1px;margin:5px 0 2px;color:#252a34}
-.about-brand-tagline{margin:0 0 12px;font-size:12px;font-weight:700;color:#00a968}
+.about-brand-tagline{margin:0 0 12px;font-size:12px;font-weight:700;color:#a71925}
 .about-brand-description{max-width:760px;margin:0;color:#687080;font-size:13px;line-height:1.65}
 .about-brand-divider{height:1px;background:#eadde0;margin:16px 0}
 .about-brand-credit{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin:6px 0;font-size:12px}
@@ -8851,14 +8948,14 @@ function setupSettings(){
         <div id="settingsMessage"></div>
       </div>
       <div class="settings-card" id="settingsInviteCard">
-        <h3>👥 Undang Pengguna Koperasi</h3>
-        <p class="settings-help">Buat akun pengguna yang hanya dapat dibuat atas persetujuan Manajer. Tentukan email, password awal, dan hak akses pengguna.</p>
+        <h3>👥 Tambah Pengguna Koperasi</h3>
+        <p class="settings-help">Buat akun pengguna dengan email, password awal, dan jabatan. Sampaikan password kepada pengguna melalui saluran pribadi yang aman.</p>
         <div class="settings-grid">
-          <div class="settings-field"><label for="inviteUserEmail">Email Pengguna</label><input id="inviteUserEmail" type="email" maxlength="254" autocomplete="off" placeholder="nama@email.com"></div>
-          <div class="settings-field"><label for="inviteUserPassword">Password Awal</label><input id="inviteUserPassword" type="password" minlength="6" maxlength="72" autocomplete="new-password" placeholder="Tentukan password pengguna"></div>
-          <div class="settings-field"><label for="inviteUserRole">Jabatan / Hak Akses</label><select id="inviteUserRole"><option value="admin_keuangan">Admin Keuangan</option><option value="kasir">Kasir</option><option value="admin_gudang">Admin Gudang</option><option value="pengurus">Pengurus</option></select></div>
+          <div class="settings-field"><label for="inviteUserEmail">Email Pengguna</label><input id="inviteUserEmail" type="email" maxlength="254" autocomplete="off" placeholder="nama@email.com" required></div>
+          <div class="settings-field"><label for="inviteUserPassword">Sandi / Password Pengguna</label><input id="inviteUserPassword" type="password" minlength="8" maxlength="72" autocomplete="new-password" placeholder="Minimal 8 karakter" required></div>
+          <div class="settings-field"><label for="inviteUserRole">Jabatan / Hak Akses</label><select id="inviteUserRole"><option value="manajer">Manajer — Hak Akses Penuh</option><option value="admin_keuangan">Admin Keuangan</option><option value="kasir">Kasir</option><option value="admin_gudang">Admin Gudang</option><option value="pengurus">Pengurus</option></select></div>
         </div>
-        <div class="settings-actions"><button type="button" class="settings-btn" id="inviteUserSend">Kirim Undangan</button></div>
+        <div class="settings-actions"><button type="button" class="settings-btn" id="inviteUserSend">Buat Pengguna</button></div>
         <div id="inviteUserMessage" aria-live="polite"></div>
       </div>
       <div class="settings-card">
@@ -8880,9 +8977,9 @@ function setupSettings(){
         <div class="about-brand-mark">D</div>
         <div class="about-brand-content">
           <span class="about-brand-eyebrow">ABOUT THIS APPLICATION</span>
-          <h3>DAGBOEK</h3>
+          <h3>KDMP by Nusa Pixel</h3>
           <p class="about-brand-tagline">ERP & Financial Management System</p>
-          <p class="about-brand-description">DAGBOEK dikembangkan sebagai sistem pengelolaan operasional dan keuangan yang membantu pencatatan, pemantauan, serta pengambilan keputusan secara lebih terstruktur.</p>
+          <p class="about-brand-description">KDMP dikembangkan oleh Nusa Pixel sebagai sistem pengelolaan operasional dan keuangan yang membantu pencatatan, pemantauan, serta pengambilan keputusan secara lebih terstruktur.</p>
           <div class="about-brand-divider"></div>
           <div class="about-brand-credit"><span>Dikembangkan oleh</span><strong>Ahmad Nashirudin</strong></div>
           <div class="about-brand-credit"><span>Studio pengembang</span><strong>Nusa Pixel</strong></div>
@@ -8891,7 +8988,7 @@ function setupSettings(){
       </div>`;
     parent.appendChild(section);
     const profile=getKDMPProfile();
-    document.getElementById("settingsOrgName").value=profile.name||"Koperasi Desa";
+    document.getElementById("settingsOrgName").value=profile.name||"KDMP Pendowo Asri";
     document.getElementById("settingsOrgEmail").value=profile.email||"";
     document.getElementById("settingsOrgPhone").value=profile.phone||"";
     document.getElementById("settingsOrgAddress").value=profile.address||"";
@@ -8907,12 +9004,12 @@ function setupSettings(){
       const old=getKDMPProfile();
       const profile={name,email:document.getElementById("settingsOrgEmail").value.trim(),phone:document.getElementById("settingsOrgPhone").value.trim(),address:document.getElementById("settingsOrgAddress").value.trim(),logo:section.dataset.pendingLogo||old.logo||""};
       try{localStorage.setItem("kdmp_erp_profile",JSON.stringify(profile));document.getElementById("settingsMessage").textContent="Profil berhasil disimpan di perangkat ini.";document.getElementById("settingsMessage").style.color="#159765";}
-      catch(error){document.getElementById("settingsMessage").textContent="Gagal menyimpan. Ukuran logo mungkin terlalu besar.";document.getElementById("settingsMessage").style.color="#00a968";}
+      catch(error){document.getElementById("settingsMessage").textContent="Gagal menyimpan. Ukuran logo mungkin terlalu besar.";document.getElementById("settingsMessage").style.color="#b91c2c";}
     });
     document.getElementById("settingsResetProfile").addEventListener("click",()=>{
-      if(!confirm("Pulihkan profil ke default Koperasi Desa?"))return;
+      if(!confirm("Pulihkan profil ke default KDMP Pendowo Asri?"))return;
       localStorage.removeItem("kdmp_erp_profile");section.dataset.pendingLogo="";
-      document.getElementById("settingsOrgName").value="Koperasi Desa";
+      document.getElementById("settingsOrgName").value="KDMP Pendowo Asri";
       document.getElementById("settingsOrgEmail").value="";document.getElementById("settingsOrgPhone").value="";document.getElementById("settingsOrgAddress").value="";
       document.getElementById("settingsLogoPreview").textContent="Logo";document.getElementById("settingsLogoFile").value="";
       document.getElementById("settingsMessage").textContent="Profil default dipulihkan.";
@@ -8933,59 +9030,52 @@ function setupSettings(){
       message.className="";
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
         message.textContent="Masukkan alamat email yang valid.";
-        message.className="error";
-        emailInput.focus();
-        return;
+        message.className="error";emailInput.focus();return;
       }
-      if(password.length<6){
-        message.textContent="Password awal minimal 6 karakter.";
-        message.className="error";
-        passwordInput.focus();
-        return;
+      if(password.length<8||password.length>72){
+        message.textContent="Password harus terdiri dari 8 sampai 72 karakter.";
+        message.className="error";passwordInput.focus();return;
       }
-      const user=window.currentUser;
-      if(!user?.id){
-        message.textContent="Sesi login tidak ditemukan. Silakan login ulang.";
-        message.className="error";
-        return;
+      // Ambil identitas langsung dari sesi Supabase, bukan hanya cache window.currentUser.
+      // Cache UI bisa belum terisi/tertinggal meskipun sesi autentikasi masih valid.
+      const {data:authData,error:authError}=await supabaseClient.auth.getUser();
+      const authenticatedUser=authData?.user;
+      if(authError||!authenticatedUser?.id){
+        message.textContent="Sesi login Supabase tidak ditemukan atau sudah kedaluwarsa. Silakan login ulang.";
+        message.className="error";return;
       }
+      window.currentUser={...(window.currentUser||{}),id:authenticatedUser.id};
       inviteButton.disabled=true;
-      inviteButton.textContent="Mengirim undangan...";
-      message.textContent="Memeriksa akses Manajer dan mengirim email...";
+      inviteButton.textContent="Membuat pengguna...";
+      message.textContent="Memeriksa hak akses Manajer dan membuat akun...";
       try{
         const {data:memberships,error:membershipError}=await supabaseClient
-          .from("cooperative_memberships")
-          .select("cooperative_id")
-          .eq("user_id",user.id)
-          .eq("role","manajer")
-          .eq("status","active")
-          .limit(2);
+          .from("cooperative_memberships").select("cooperative_id")
+          .eq("user_id",user.id).eq("role","manajer").eq("status","active").limit(2);
         if(membershipError)throw new Error("Gagal memeriksa akses Manajer: "+membershipError.message);
         if(!memberships?.length)throw new Error("Akun ini belum terdaftar sebagai Manajer aktif koperasi.");
-        if(memberships.length>1)throw new Error("Akun Manajer terdaftar di lebih dari satu koperasi. Pemilihan koperasi perlu diaktifkan sebelum undangan dikirim agar pengguna masuk ke koperasi yang benar.");
+        if(memberships.length>1)throw new Error("Akun Manajer terdaftar di lebih dari satu koperasi. Pemilihan koperasi perlu diaktifkan sebelum membuat pengguna.");
         const cooperativeId=memberships[0].cooperative_id;
         if(!cooperativeId)throw new Error("ID koperasi tidak ditemukan pada keanggotaan Manajer.");
         const {data,error}=await supabaseClient.functions.invoke("invite-user",{
           body:{cooperative_id:cooperativeId,email,password,role}
         });
         if(error){
-          let detail="";
-          try{detail=await error.context.clone().text();}catch(_){}
+          let detail="";try{detail=await error.context.clone().text();}catch(_){}
           let parsed=null;try{parsed=JSON.parse(detail);}catch(_){}
-          throw new Error(parsed?.message||detail||error.message||"Undangan gagal dikirim.");
+          throw new Error(parsed?.message||detail||error.message||"Pengguna gagal dibuat.");
         }
-        if(!data?.success)throw new Error(data?.message||"Undangan gagal dikirim.");
-        message.textContent="Akun berhasil dibuat dan email akses dikirim ke "+email+". Minta pengguna memeriksa Inbox dan folder Spam.";
+        if(!data?.success)throw new Error(data?.message||"Pengguna gagal dibuat.");
+        message.textContent="Pengguna berhasil dibuat: "+email+". Password awal sudah ditetapkan.";
         message.className="success";
-        emailInput.value="";
-        passwordInput.value="";
+        emailInput.value="";passwordInput.value="";
       }catch(error){
-        console.error("Invite user:",error);
-        message.textContent=error.message||"Terjadi kesalahan saat mengirim undangan.";
+        console.error("Create user:",error);
+        message.textContent=error.message||"Terjadi kesalahan saat membuat pengguna.";
         message.className="error";
       }finally{
         inviteButton.disabled=false;
-        inviteButton.textContent="Kirim Undangan";
+        inviteButton.textContent="Buat Pengguna";
       }
     });
   }
@@ -9041,7 +9131,49 @@ const referenceExcelData = [
   {name:"TEXT",category:"Pengolahan Teks",syntax:"=TEXT(value, format_text)",example:'=TEXT(A2,"dd mmmm yyyy")',description:"Mengubah angka atau tanggal menjadi teks dengan format tertentu.",use:"Menampilkan tanggal atau angka dengan format laporan."},
   {name:"LEFT",category:"Pengolahan Teks",syntax:"=LEFT(text, [num_chars])",example:"=LEFT(A2,4)",description:"Mengambil sejumlah karakter dari sisi kiri teks.",use:"Mengambil awalan kode akun atau kode barang."},
   {name:"RIGHT",category:"Pengolahan Teks",syntax:"=RIGHT(text, [num_chars])",example:"=RIGHT(A2,3)",description:"Mengambil sejumlah karakter dari sisi kanan teks.",use:"Mengambil akhiran nomor dokumen."},
-  {name:"CONCAT",category:"Pengolahan Teks",syntax:"=CONCAT(text1, [text2], …)",example:'=CONCAT(A2," - ",B2)',description:"Menggabungkan teks dari beberapa sel atau nilai.",use:"Menggabungkan kode dan nama akun/barang."}
+  {name:"CONCAT",category:"Pengolahan Teks",syntax:"=CONCAT(text1, [text2], …)",example:'=CONCAT(A2," - ",B2)',description:"Menggabungkan teks dari beberapa sel atau nilai.",use:"Menggabungkan kode dan nama akun/barang."},
+  {name:"COUNTBLANK",category:"Statistik",syntax:"=COUNTBLANK(range)",example:"=COUNTBLANK(A2:A100)",description:"Menghitung jumlah sel kosong dalam rentang.",use:"Menemukan kolom data anggota atau transaksi yang belum diisi."},
+  {name:"MEDIAN",category:"Statistik",syntax:"=MEDIAN(number1, [number2], …)",example:"=MEDIAN(D2:D100)",description:"Menghasilkan nilai tengah dari sekumpulan angka.",use:"Melihat nilai transaksi tipikal tanpa terlalu dipengaruhi nilai ekstrem."},
+  {name:"LARGE",category:"Statistik",syntax:"=LARGE(array, k)",example:"=LARGE(D2:D100,1)",description:"Menghasilkan nilai terbesar ke-k dalam rentang.",use:"Mencari transaksi dengan nominal terbesar."},
+  {name:"SMALL",category:"Statistik",syntax:"=SMALL(array, k)",example:"=SMALL(D2:D100,1)",description:"Menghasilkan nilai terkecil ke-k dalam rentang.",use:"Mencari transaksi dengan nominal terkecil."},
+  {name:"ABS",category:"Matematika",syntax:"=ABS(number)",example:"=ABS(B2-C2)",description:"Mengubah angka menjadi nilai absolut tanpa tanda negatif.",use:"Menghitung selisih nominal tanpa memperhatikan arah selisih."},
+  {name:"PRODUCT",category:"Matematika",syntax:"=PRODUCT(number1, [number2], …)",example:"=PRODUCT(B2,C2)",description:"Mengalikan angka atau rentang angka.",use:"Menghitung nilai barang dari jumlah dikali harga satuan."},
+  {name:"AVERAGEIF",category:"Perhitungan Bersyarat",syntax:"=AVERAGEIF(range, criteria, [average_range])",example:'=AVERAGEIF(B2:B100,"Penjualan",D2:D100)',description:"Menghitung rata-rata nilai yang memenuhi satu kriteria.",use:"Menghitung rata-rata nilai transaksi berdasarkan jenis."},
+  {name:"AVERAGEIFS",category:"Perhitungan Bersyarat",syntax:"=AVERAGEIFS(average_range, criteria_range1, criteria1, …)",example:'=AVERAGEIFS(D2:D100,B2:B100,"Penjualan",C2:C100,"Tunai")',description:"Menghitung rata-rata berdasarkan beberapa kriteria.",use:"Menganalisis rata-rata penjualan tunai pada periode tertentu."},
+  {name:"IFNA",category:"Logika",syntax:"=IFNA(value, value_if_na)",example:'=IFNA(XLOOKUP(A2,H2:H100,J2:J100),"Tidak ditemukan")',description:"Mengganti error #N/A dengan hasil alternatif.",use:"Memberi pesan yang jelas ketika kode anggota atau barang tidak ditemukan."},
+  {name:"NOT",category:"Logika",syntax:"=NOT(logical)",example:'=NOT(C2="Lunas")',description:"Membalik nilai logika TRUE menjadi FALSE dan sebaliknya.",use:"Menguji kondisi yang tidak terpenuhi."},
+  {name:"HLOOKUP",category:"Pencarian Data",syntax:"=HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup])",example:"=HLOOKUP(B1,$B$5:$G$7,2,FALSE)",description:"Mencari nilai pada baris pertama tabel dan mengambil data dari baris lain.",use:"Mengambil informasi dari tabel referensi yang disusun mendatar."},
+  {name:"FILTER",category:"Rumus Dinamis",syntax:"=FILTER(array, include, [if_empty])",example:'=FILTER(A2:D100,C2:C100="Belum Lunas","Tidak ada data")',description:"Menyaring data secara dinamis berdasarkan kondisi.",use:"Menampilkan daftar piutang yang belum lunas."},
+  {name:"SORT",category:"Rumus Dinamis",syntax:"=SORT(array, [sort_index], [sort_order])",example:"=SORT(A2:D100,4,-1)",description:"Mengurutkan rentang atau array secara dinamis.",use:"Mengurutkan transaksi berdasarkan nominal terbesar."},
+  {name:"UNIQUE",category:"Rumus Dinamis",syntax:"=UNIQUE(array)",example:"=UNIQUE(B2:B100)",description:"Menghasilkan daftar nilai unik tanpa duplikasi.",use:"Membuat daftar kategori transaksi atau nama pemasok yang berbeda."},
+  {name:"SEQUENCE",category:"Rumus Dinamis",syntax:"=SEQUENCE(rows, [columns], [start], [step])",example:"=SEQUENCE(12,1,1,1)",description:"Membuat deret angka berurutan dalam bentuk array.",use:"Membuat nomor urut atau daftar periode."},
+  {name:"DATE",category:"Tanggal & Waktu",syntax:"=DATE(year, month, day)",example:"=DATE(2026,11,21)",description:"Membentuk tanggal dari komponen tahun, bulan, dan hari.",use:"Menyusun tanggal laporan dari kolom terpisah."},
+  {name:"YEAR",category:"Tanggal & Waktu",syntax:"=YEAR(serial_number)",example:"=YEAR(A2)",description:"Mengambil angka tahun dari tanggal.",use:"Mengelompokkan transaksi berdasarkan tahun."},
+  {name:"MONTH",category:"Tanggal & Waktu",syntax:"=MONTH(serial_number)",example:"=MONTH(A2)",description:"Mengambil angka bulan dari tanggal.",use:"Membuat rekap transaksi per bulan."},
+  {name:"DAY",category:"Tanggal & Waktu",syntax:"=DAY(serial_number)",example:"=DAY(A2)",description:"Mengambil angka hari dari tanggal.",use:"Memisahkan komponen hari untuk analisis tanggal."},
+  {name:"NOW",category:"Tanggal & Waktu",syntax:"=NOW()",example:"=NOW()",description:"Menghasilkan tanggal dan waktu saat ini; nilainya diperbarui saat kalkulasi.",use:"Mencatat waktu kalkulasi atau membuat penanda waktu dinamis."},
+  {name:"LEN",category:"Pengolahan Teks",syntax:"=LEN(text)",example:"=LEN(A2)",description:"Menghitung jumlah karakter dalam teks termasuk spasi.",use:"Memeriksa panjang kode akun atau nomor dokumen."},
+  {name:"TRIM",category:"Pengolahan Teks",syntax:"=TRIM(text)",example:"=TRIM(A2)",description:"Menghapus spasi berlebih di awal, akhir, dan antar kata.",use:"Membersihkan nama anggota atau nama barang sebelum pencocokan."},
+  {name:"UPPER",category:"Pengolahan Teks",syntax:"=UPPER(text)",example:"=UPPER(A2)",description:"Mengubah seluruh huruf menjadi kapital.",use:"Menyeragamkan kode atau nama kategori."},
+  {name:"LOWER",category:"Pengolahan Teks",syntax:"=LOWER(text)",example:"=LOWER(A2)",description:"Mengubah seluruh huruf menjadi huruf kecil.",use:"Menyeragamkan teks sebelum dibandingkan."},
+  {name:"PROPER",category:"Pengolahan Teks",syntax:"=PROPER(text)",example:"=PROPER(A2)",description:"Mengubah huruf pertama setiap kata menjadi kapital.",use:"Merapikan penulisan nama anggota atau pemasok."},
+  {name:"TEXTJOIN",category:"Pengolahan Teks",syntax:"=TEXTJOIN(delimiter, ignore_empty, text1, …)",example:'=TEXTJOIN(" - ",TRUE,A2:C2)',description:"Menggabungkan beberapa teks dengan pemisah dan opsi mengabaikan sel kosong.",use:"Menggabungkan kode, nama, dan kategori menjadi satu keterangan."},
+  {name:"FIND",category:"Pengolahan Teks",syntax:"=FIND(find_text, within_text, [start_num])",example:'=FIND("-",A2)',description:"Mencari posisi teks dengan membedakan huruf besar dan kecil.",use:"Menemukan posisi pemisah dalam kode dokumen."},
+  {name:"SEARCH",category:"Pengolahan Teks",syntax:"=SEARCH(find_text, within_text, [start_num])",example:'=SEARCH("beras",A2)',description:"Mencari posisi teks tanpa membedakan huruf besar dan kecil.",use:"Mencari kata pada keterangan transaksi."},
+
+  {name:"Shortcut: AutoSum",category:"Shortcut Excel",syntax:"Alt + =",example:"Pilih sel di bawah angka lalu tekan Alt + = untuk memasukkan SUM otomatis.",description:"Memasukkan rumus SUM secara otomatis untuk menjumlahkan rentang angka yang berdekatan.",use:"Menjumlahkan pemasukan, pengeluaran, penjualan, atau saldo."},
+  {name:"Shortcut: Insert Function",category:"Shortcut Excel",syntax:"Shift + F3",example:"Pilih sel hasil, tekan Shift + F3, lalu cari fungsi SUMIF atau AVERAGE.",description:"Membuka dialog Insert Function untuk mencari dan memilih fungsi Excel.",use:"Mencari fungsi tanpa harus menghafal sintaks."},
+  {name:"Shortcut: Absolute Reference",category:"Shortcut Excel",syntax:"F4",example:"Saat mengedit formula, pilih referensi C2 lalu tekan F4 hingga menjadi $C$2.",description:"Mengubah referensi sel menjadi absolut atau campuran.",use:"Mengunci sel tarif atau parameter saat formula disalin."},
+  {name:"Shortcut: Show Formulas",category:"Shortcut Excel",syntax:"Ctrl + ~",example:"Tekan Ctrl + ~ untuk menampilkan formula pada lembar kerja.",description:"Menampilkan formula, bukan hasil perhitungannya.",use:"Mengaudit rumus pada tabel rekap."},
+  {name:"Shortcut: Calculate Workbook",category:"Shortcut Excel",syntax:"F9",example:"Tekan F9 untuk menghitung ulang workbook.",description:"Menghitung ulang formula pada workbook.",use:"Memperbarui hasil saat mode kalkulasi manual digunakan."},
+  {name:"Shortcut: Current Date",category:"Shortcut Excel",syntax:"Ctrl + ;",example:"Tekan Ctrl + ; pada kolom tanggal pencatatan.",description:"Memasukkan tanggal hari ini sebagai nilai tetap.",use:"Mencatat tanggal transaksi dengan cepat."},
+  {name:"Shortcut: Current Time",category:"Shortcut Excel",syntax:"Ctrl + Shift + ;",example:"Tekan Ctrl + Shift + ; pada kolom waktu penerimaan.",description:"Memasukkan waktu saat ini sebagai nilai tetap.",use:"Mencatat waktu proses administrasi."},
+  {name:"Shortcut: Fill Down",category:"Shortcut Excel",syntax:"Ctrl + D",example:"Pilih C2:C100 lalu tekan Ctrl + D untuk menyalin formula ke bawah.",description:"Menyalin isi atau formula dari sel teratas ke sel di bawahnya.",use:"Mengisi formula per baris pada daftar transaksi."},
+  {name:"Shortcut: Create Table",category:"Shortcut Excel",syntax:"Ctrl + T",example:"Pilih daftar transaksi, tekan Ctrl + T, lalu konfirmasi header.",description:"Mengubah rentang data menjadi Excel Table dengan filter.",use:"Merapikan data transaksi agar mudah difilter."},
+  {name:"Shortcut: Quick Filter",category:"Shortcut Excel",syntax:"Ctrl + Shift + L",example:"Pilih tabel transaksi lalu tekan Ctrl + Shift + L.",description:"Mengaktifkan atau menonaktifkan filter pada rentang data.",use:"Menyaring transaksi berdasarkan tanggal, jenis, atau status."},
+  {name:"Shortcut: Paste Values",category:"Shortcut Excel",syntax:"Ctrl + Alt + V, lalu V, Enter",example:"Salin hasil formula, tekan Ctrl + Alt + V, pilih Values, lalu Enter.",description:"Menempelkan hasil nilai saja tanpa formula sumber.",use:"Mengunci hasil rekap sebelum dibagikan."},
+  {name:"Shortcut: New Line in Cell",category:"Shortcut Excel",syntax:"Alt + Enter",example:"Saat mengisi keterangan transaksi, tekan Alt + Enter.",description:"Membuat baris baru di dalam sel yang sama.",use:"Menulis keterangan panjang dalam satu sel."}
+
 ];
 
 const referenceAccountingData = [
@@ -9091,7 +9223,7 @@ function setupReferenceLibrary(){
     section.innerHTML=`
       <div class="reference-hero">
         <div class="reference-hero-icon">📚</div>
-        <div><span class="reference-eyebrow">PUSAT REFERENSI DAGBOEK</span><h2>Rumus Excel & Kamus Akuntansi</h2><p>Temukan rumus spreadsheet dan pahami istilah akuntansi dengan contoh yang dekat dengan kegiatan koperasi.</p></div>
+        <div><span class="reference-eyebrow">PUSAT REFERENSI KDMP</span><h2>Rumus Excel & Kamus Akuntansi</h2><p>Temukan rumus spreadsheet dan pahami istilah akuntansi dengan contoh yang dekat dengan kegiatan koperasi.</p></div>
       </div>
       <div class="reference-tabs" role="tablist" aria-label="Jenis referensi">
         <button type="button" class="reference-tab active" data-reference-tab="excel" role="tab" aria-selected="true">📊 Rumus Excel</button>
@@ -9222,3 +9354,173 @@ window.showPage=function(page,button){
   }
   return kdmpShowPageBeforeRoleGuard(page,button);
 };
+
+
+// DABU — persistent, read-only AI assistant for DAGBOEK.
+function initDabuAssistant(){
+  const userId=window.currentUser?.id;
+  if(!userId||document.getElementById("dabuLauncher"))return;
+
+  const storageKey="dagboek_dabu_conversation_"+userId;
+  let conversationId=localStorage.getItem(storageKey)||null;
+  let isSending=false;
+  let historyLoaded=false;
+
+  const launcher=document.createElement("button");
+  launcher.id="dabuLauncher";
+  launcher.className="dabu-launcher";
+  launcher.type="button";
+  launcher.setAttribute("aria-label","Buka asisten DABU");
+  launcher.innerHTML='<span class="dabu-launcher-orb">D</span><span class="dabu-launcher-label">Tanya DABU</span>';
+
+  const panel=document.createElement("section");
+  panel.id="dabuPanel";
+  panel.className="dabu-panel";
+  panel.hidden=true;
+  panel.innerHTML=`
+    <header class="dabu-header">
+      <div class="dabu-brand">
+        <span class="dabu-brand-orb">D</span>
+        <span><strong>DABU</strong><small>KDMP AI ASSISTANT</small></span>
+      </div>
+      <div class="dabu-header-actions">
+        <button type="button" id="dabuNewChat" title="Percakapan baru" aria-label="Percakapan baru">＋</button>
+        <button type="button" id="dabuClose" title="Tutup" aria-label="Tutup">×</button>
+      </div>
+    </header>
+    <div id="dabuMessages" class="dabu-messages" aria-live="polite"></div>
+    <form id="dabuForm" class="dabu-form">
+      <textarea id="dabuInput" rows="2" maxlength="2500" placeholder="Tanya tentang stok, jurnal, laporan, atau cara menggunakan KDMP..." aria-label="Pesan untuk DABU"></textarea>
+      <button id="dabuSend" type="submit" aria-label="Kirim pesan">➤</button>
+    </form>
+    <div class="dabu-footnote">DABU hanya membaca data sesuai hak akses akun. Belum dapat mengubah transaksi.</div>
+  `;
+
+  document.body.append(launcher,panel);
+  const messagesEl=panel.querySelector("#dabuMessages");
+  const input=panel.querySelector("#dabuInput");
+  const sendButton=panel.querySelector("#dabuSend");
+  const form=panel.querySelector("#dabuForm");
+
+  function scrollMessages(){messagesEl.scrollTop=messagesEl.scrollHeight;}
+
+  function addMessage(role,content){
+    const row=document.createElement("div");
+    row.className="dabu-message "+role;
+    const bubble=document.createElement("div");
+    bubble.className="dabu-bubble";
+    bubble.textContent=content;
+    row.appendChild(bubble);
+
+    if(role==="assistant"&&("speechSynthesis" in window)&&("SpeechSynthesisUtterance" in window)){
+      const speak=document.createElement("button");
+      speak.type="button";
+      speak.className="dabu-speak";
+      speak.textContent="🔊 Bacakan";
+      speak.addEventListener("click",()=>{
+        const utterance=new SpeechSynthesisUtterance(content);
+        utterance.lang="id-ID";
+        const voices=window.speechSynthesis.getVoices();
+        const voice=voices.find(v=>v.lang?.toLowerCase().startsWith("id")&&/female|perempuan|google/i.test(v.name))
+          ||voices.find(v=>v.lang?.toLowerCase().startsWith("id"));
+        if(voice)utterance.voice=voice;
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+      });
+      row.appendChild(speak);
+    }
+
+    messagesEl.appendChild(row);
+    scrollMessages();
+  }
+
+  function showGreeting(){
+    messagesEl.replaceChildren();
+    addMessage("assistant","Halo! Aku DABU, asisten DAGBOEK. Aku bisa bantu menjelaskan stok, jurnal, transaksi, laporan, dan cara menggunakan modul. Aku hanya membaca data sesuai hak akses akun.");
+  }
+
+  async function loadHistory(){
+    if(historyLoaded)return;
+    historyLoaded=true;
+    if(!conversationId){showGreeting();return;}
+    const {data,error}=await supabaseClient
+      .from("dabu_messages")
+      .select("role,content")
+      .eq("conversation_id",conversationId)
+      .order("created_at",{ascending:true})
+      .limit(40);
+    if(error||!data?.length){showGreeting();return;}
+    messagesEl.replaceChildren();
+    data.forEach(item=>addMessage(item.role,item.content));
+  }
+
+  async function sendMessage(event){
+    event.preventDefault();
+    if(isSending)return;
+    const message=input.value.trim();
+    if(!message)return;
+    if(message.length>2500){addMessage("assistant","Pesan terlalu panjang. Maksimal 2.500 karakter.");return;}
+
+    isSending=true;
+    sendButton.disabled=true;
+    input.disabled=true;
+    addMessage("user",message);
+    input.value="";
+    const loading=document.createElement("div");
+    loading.className="dabu-message assistant";
+    loading.innerHTML='<div class="dabu-bubble dabu-thinking"><span></span><span></span><span></span> DABU sedang berpikir</div>';
+    messagesEl.appendChild(loading);
+    scrollMessages();
+
+    try{
+      const {data,error}=await supabaseClient.functions.invoke("dabu-assistant",{
+        body:{message,conversation_id:conversationId}
+      });
+      loading.remove();
+      if(error){
+        let friendly="DABU belum bisa menjawab. Periksa koneksi dan konfigurasi AI.";
+        try{
+          const detail=await error.context?.json?.();
+          if(detail?.error)friendly=detail.error;
+        }catch{}
+        addMessage("assistant",friendly);
+      }else if(data?.answer){
+        conversationId=data.conversation_id||conversationId;
+        if(conversationId)localStorage.setItem(storageKey,conversationId);
+        addMessage("assistant",data.answer);
+      }else{
+        addMessage("assistant","DABU menerima respons kosong. Coba kirim pertanyaan sekali lagi.");
+      }
+    }catch(error){
+      loading.remove();
+      addMessage("assistant","Koneksi ke DABU terputus. Coba lagi sebentar.");
+      console.warn("DABU request failed:",error);
+    }finally{
+      isSending=false;
+      sendButton.disabled=false;
+      input.disabled=false;
+      input.focus();
+    }
+  }
+
+  launcher.addEventListener("click",async()=>{
+    panel.hidden=!panel.hidden;
+    launcher.setAttribute("aria-expanded",String(!panel.hidden));
+    if(!panel.hidden){await loadHistory();input.focus();}
+  });
+  panel.querySelector("#dabuClose").addEventListener("click",()=>{
+    panel.hidden=true;
+    launcher.setAttribute("aria-expanded","false");
+  });
+  panel.querySelector("#dabuNewChat").addEventListener("click",()=>{
+    conversationId=null;
+    historyLoaded=true;
+    localStorage.removeItem(storageKey);
+    showGreeting();
+    input.focus();
+  });
+  form.addEventListener("submit",sendMessage);
+  input.addEventListener("keydown",event=>{
+    if(event.key==="Enter"&&!event.shiftKey){event.preventDefault();form.requestSubmit();}
+  });
+}
