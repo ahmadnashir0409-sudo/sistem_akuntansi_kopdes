@@ -1,5 +1,5 @@
 
-const dbARAP = window.daiboekSupabase;
+const dbARAP = window.dagboekSupabase;
 
 const arapStyle = document.createElement("style");
 arapStyle.textContent = `
