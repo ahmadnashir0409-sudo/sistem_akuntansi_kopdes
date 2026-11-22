@@ -1,123 +1,276 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sistem Akuntansi Koperasi Desa</title>
-<style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
-  body{background:#f2f4f1}
-  .header{background:#0B6E4F;color:white;padding:14px 20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-  .header nav{display:flex;gap:16px;font-size:14px;flex-wrap:wrap}
-  .header nav span{opacity:.85;cursor:pointer}
-  .header nav span.active{font-weight:700;border-bottom:2px solid white}
-  .header .right{margin-left:auto;display:flex;gap:12px;align-items:center}
-  .avatar{width:32px;height:32px;background:#FFD166;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0B6E4F;font-weight:bold}
-  .container{padding:20px;max-width:1200px;margin:auto}
-  .title-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:10px;flex-wrap:wrap}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:700px){.grid{grid-template-columns:1fr}}
-  .card{background:white;border-radius:20px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-  .card-top{display:flex;justify-content:space-between;align-items:flex-start}
-  .card-top small{color:#888}
-  .badge{background:#E6F4EE;color:#0B6E4F;font-size:12px;padding:4px 10px;border-radius:999px;font-weight:600}
-  .btn{background:#0B6E4F;color:white;border:none;padding:12px 18px;border-radius:999px;font-weight:700;cursor:pointer;margin-top:12px;width:100%}
-  .btn:active{transform:scale(.98)}
-  .btn-outline{background:white;color:#0B6E4F;border:1.5px solid #0B6E4F;padding:12px 18px;border-radius:999px;font-weight:700;cursor:pointer;margin-top:8px;width:100%}
-  .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #eee;font-size:14px}
-  .green{color:#0B6E4F}.red{color:#D32F2F}
-  .chart{display:flex;align-items:flex-end;gap:10px;height:70px;margin-top:12px}
-  .bar{flex:1;background:#0B6E4F;border-radius:10px 10px 0 0;min-height:8px;transition:.3s}
-  .bar.red-bg{background:#EF5350}.bar.grey{background:#BDBDBD}
-  .info{margin-top:10px;background:#FFF8E1;padding:10px;border-radius:12px;font-size:13px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#a71925">
+  <title>DAGBOEK by Nusa Pixel | KDMP Pendowo Asri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+<div class="layout">
 
-<div class="header">
-  <b>🌾 Koperasi Desa</b>
-  <nav>
-    <span class="active">Akuntansi</span>
-    <span onclick="pindah('Pelanggan')">Pelanggan</span>
-    <span onclick="pindah('Pemasok')">Pemasok</span>
-    <span onclick="pindah('Laporan')">Laporan</span>
-    <span onclick="pindah('Pengaturan')">Pengaturan</span>
-  </nav>
-  <div class="right"><span>🔔 <span id="notif">3</span></span><div class="avatar">A</div><span>Administrator</span></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">D</div>
+      <div>
+        <h2>DAGBOEK</h2>
+        <p>by NUSA PIXEL · Pendowo Asri</p>
+      </div>
+    </div>
+
+    <div class="menu-title">MENU UTAMA</div>
+    <nav class="menu">
+      <button class="active" onclick="showPage('dashboard', this)">
+        <span class="menu-icon">▦</span> Dashboard
+      </button>
+
+      <div class="menu-title">AKUNTANSI</div>
+      <button onclick="showPage('keuangan', this)"><span class="menu-icon">💰</span> Pencatatan Keuangan</button>
+      <button onclick="showPage('coa', this)"><span class="menu-icon">📚</span> Chart of Accounts</button>
+      <button onclick="showPage('jurnal', this)"><span class="menu-icon">📖</span> Jurnal Umum</button>
+      <button onclick="showPage('buku-besar', this)"><span class="menu-icon">📒</span> Buku Besar</button>
+      <button onclick="showPage('laporan', this)"><span class="menu-icon">📊</span> Laporan Keuangan</button>
+      <button onclick="showPage('utang-piutang', this)"><span class="menu-icon">💳</span> Utang & Piutang</button>
+      <button onclick="showPage('bank', this)"><span class="menu-icon">🏦</span> Rekonsiliasi Bank</button>
+      <button onclick="showPage('invoice', this)"><span class="menu-icon">🧾</span> Invoice</button>
+
+      <div class="menu-title">OPERASIONAL KOPERASI</div>
+      <button onclick="showPage('toko', this)"><span class="menu-icon">🛒</span> Transaksi Toko</button>
+      <button onclick="showPage('simpanan', this)"><span class="menu-icon">👥</span> Simpanan & Pinjaman</button>
+      <button onclick="showPage('persediaan', this)"><span class="menu-icon">📦</span> Persediaan Barang</button>
+
+      <div class="menu-title">MANAJEMEN</div>
+      <button onclick="showPage('bulanan', this)"><span class="menu-icon">📅</span> Laporan Bulanan</button>
+      <button onclick="showPage('monitoring', this)"><span class="menu-icon">🛡️</span> Monitoring Manajer</button>
+      <button onclick="showPage('rumus-kamus', this)"><span class="menu-icon">📚</span> Rumus Excel & Kamus Akuntansi</button>
+      <button onclick="showPage('pengaturan', this)"><span class="menu-icon">⚙️</span> Pengaturan</button>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+        <div>
+          <h2 id="pageTitle">Dashboard</h2>
+          <p>KDMP Pendowo Asri</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <div class="avatar">M</div>
+        <div class="user-info">Manajer<small>Administrator</small></div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="page">
+
+        <div class="welcome">
+          <div>
+            <span style="font-size:12px;font-weight:700;color:#a71925;letter-spacing:1px">
+              MANAGEMENT OVERVIEW
+            </span>
+            <h1>Dashboard KDMP 👋</h1>
+            <p>
+              Pantau kondisi keuangan dan aktivitas operasional
+              Koperasi Desa Merah Putih Pendowo Asri.
+            </p>
+          </div>
+        </div>
+
+        <!-- RINGKASAN KEUANGAN -->
+        <div class="stats">
+
+          <div class="stat-card">
+            <div class="stat-head">
+              <span class="stat-label">Total Pemasukan</span>
+              <div class="stat-icon green-bg">↗</div>
+            </div>
+            <h3 id="dashboardIncome">Rp 0</h3>
+            <div class="stat-note positive">Total pemasukan tercatat</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-head">
+              <span class="stat-label">Total Pengeluaran</span>
+              <div class="stat-icon red-bg">↘</div>
+            </div>
+            <h3 id="dashboardExpense">Rp 0</h3>
+            <div class="stat-note negative">Total pengeluaran tercatat</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-head">
+              <span class="stat-label">Saldo Kas & Bank</span>
+              <div class="stat-icon blue-bg">🏦</div>
+            </div>
+            <h3 id="dashboardCash">Rp 0</h3>
+            <div class="stat-note">Saldo dari jurnal terposting</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-head">
+              <span class="stat-label">Total Transaksi</span>
+              <div class="stat-icon orange-bg">📋</div>
+            </div>
+            <h3 id="dashboardTransactionCount">0</h3>
+            <div class="stat-note">Transaksi keuangan tercatat</div>
+          </div>
+
+        </div>
+
+        <!-- GRAFIK DAN AKSES CEPAT -->
+        <div class="panels">
+
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h3>Ringkasan Keuangan</h3>
+                <p>Perbandingan pemasukan dan pengeluaran</p>
+              </div>
+
+              <select class="period" id="dashboardPeriod">
+                <option value="1">Bulan ini</option>
+                <option value="3">3 Bulan</option>
+                <option value="6">6 Bulan</option>
+                <option value="12">1 Tahun</option>
+              </select>
+            </div>
+
+            <div class="chart" id="dashboardChart">
+              <div class="chart-group">
+                <div class="bar income" style="height:0%"></div>
+                <div class="bar expense" style="height:0%"></div>
+                <span class="chart-label">Jan</span>
+              </div>
+              <div class="chart-group">
+                <div class="bar income" style="height:0%"></div>
+                <div class="bar expense" style="height:0%"></div>
+                <span class="chart-label">Feb</span>
+              </div>
+              <div class="chart-group">
+                <div class="bar income" style="height:0%"></div>
+                <div class="bar expense" style="height:0%"></div>
+                <span class="chart-label">Mar</span>
+              </div>
+              <div class="chart-group">
+                <div class="bar income" style="height:0%"></div>
+                <div class="bar expense" style="height:0%"></div>
+                <span class="chart-label">Apr</span>
+              </div>
+              <div class="chart-group">
+                <div class="bar income" style="height:0%"></div>
+                <div class="bar expense" style="height:0%"></div>
+                <span class="chart-label">Mei</span>
+              </div>
+              <div class="chart-group">
+                <div class="bar income" style="height:0%"></div>
+                <div class="bar expense" style="height:0%"></div>
+                <span class="chart-label">Jun</span>
+              </div>
+            </div>
+
+            <div class="legend">
+              <span><i class="dot" style="background:#16a36a"></i> Pemasukan</span>
+              <span><i class="dot" style="background:#d34b55"></i> Pengeluaran</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h3>Akses Cepat</h3>
+                <p>Pintasan aktivitas koperasi</p>
+              </div>
+            </div>
+
+            <div class="quick-menu">
+              <button onclick="showPage('keuangan')">
+                <span>💰</span>Catat Keuangan
+              </button>
+              <button onclick="showPage('jurnal')">
+                <span>📖</span>Jurnal Umum
+              </button>
+              <button onclick="showPage('invoice')">
+                <span>🧾</span>Buat Invoice
+              </button>
+              <button onclick="showPage('toko')">
+                <span>🛒</span>Transaksi Toko
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TRANSAKSI TERBARU -->
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>Transaksi Terbaru</h3>
+              <p>Lima transaksi keuangan terakhir yang tercatat</p>
+            </div>
+
+            <button class="period" onclick="showPage('keuangan')">
+              Lihat Semua →
+            </button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>TANGGAL</th>
+                  <th>JENIS</th>
+                  <th>KETERANGAN</th>
+                  <th>JUMLAH</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+
+              <tbody id="dashboardRecentTransactions">
+                <tr>
+                  <td colspan="5" style="text-align:center;color:#999;padding:30px">
+                    Memuat transaksi...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- MODULE PAGES -->
+      <section id="modulePage" class="page module-page">
+
+        <!-- Metadata dipertahankan untuk kompatibilitas app.js -->
+        <div hidden>
+          <span id="moduleIcon">📚</span>
+          <h3 id="moduleName">Modul</h3>
+          <p id="moduleDescription">Modul KDMP ERP</p>
+        </div>
+
+      </section>
+
+    </div>
+
+    <footer>
+      © 2026 DAGBOEK by Nusa Pixel | KDMP Pendowo Asri
+    </footer>
+  </main>
 </div>
 
-<div class="container">
-  <div class="title-row"><h1>Dasbor Akuntansi</h1><span id="tanggal"></span></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script type="module" src="app.js"></script>
+<script type="module" src="utang-piutang.js"></script>
 
-  <div class="info">💡 <b>Total Saldo Kas:</b> <span id="totalSaldo" class="green">Rp 0</span> | Data tersimpan otomatis di browser ini. Coba klik tombol di bawah!</div>
-
-  <div class="grid" style="margin-top:16px">
-    <div class="card">
-      <div class="card-top"><div><small>Penjualan</small><h3>Faktur Pelanggan</h3></div><span class="badge" id="badgeFaktur">0 Belum Lunas</span></div>
-      <div class="row"><span>Total Faktur Masuk</span><b class="green" id="totalFaktur">Rp 0</b></div>
-      <div class="row"><span>Jumlah Faktur</span><b id="jmlFaktur">0 faktur</b></div>
-      <div class="chart"><div class="bar" id="bar1" style="height:20%"></div><div class="bar" style="height:35%"></div><div class="bar" style="height:50%"></div><div class="bar" style="height:70%"></div><div class="bar grey" style="height:20%"></div></div>
-      <button class="btn" onclick="tambah('Faktur Pelanggan')">+ BUAT FAKTUR BARU</button>
-      <div id="listFaktur"></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top"><div><small>Pembelian</small><h3>Tagihan Pemasok</h3></div><span class="badge" id="badgeTagihan">0 Harus Dibayar</span></div>
-      <div class="row"><span>Total Tagihan Keluar</span><b class="red" id="totalTagihan">Rp 0</b></div>
-      <div class="row"><span>Jumlah Tagihan</span><b id="jmlTagihan">0 tagihan</b></div>
-      <div class="chart"><div class="bar red-bg" style="height:30%"></div><div class="bar red-bg" style="height:45%"></div><div class="bar red-bg" style="height:25%"></div><div class="bar" style="height:60%"></div><div class="bar grey" style="height:20%"></div></div>
-      <button class="btn" onclick="tambah('Tagihan Pemasok')">+ BUAT TAGIHAN BARU</button>
-      <div id="listTagihan"></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top"><div><small>Keuangan</small><h3>Bank</h3></div><span class="badge">Bank BRI</span></div>
-      <div class="row"><span>Saldo di Buku Besar</span><b id="saldoBank">Rp 1.102.780</b></div>
-      <div class="row"><span>Saldo Rekening Terakhir</span><b>Rp 10.848.200</b></div>
-      <button class="btn" onclick="alert('Fitur Rekonsiliasi: Cek selisih Rp 9.745.420 - ini contoh, nanti kita sambungin ke data asli')">🔄 REKONSILIASI 6 ITEM</button>
-    </div>
-
-    <div class="card">
-      <div class="card-top"><div><small>Keuangan</small><h3>Kas</h3></div><span class="badge">Kas Tunai</span></div>
-      <div class="row"><span>Saldo Kas</span><b class="green" id="saldoKas">Rp 500.000</b></div>
-      <button class="btn" onclick="tambah('Kas')">+ TRANSAKSI KAS BARU</button>
-    </div>
-  </div>
-</div>
-
-<script>
-let data = JSON.parse(localStorage.getItem('kopdes') || '{"faktur":[],"tagihan":[]}');
-function rupiah(n){return 'Rp ' + n.toLocaleString('id-ID')}
-function render(){
-  let tf = data.faktur.reduce((a,b)=>a+b.nominal,0);
-  let tt = data.tagihan.reduce((a,b)=>a+b.nominal,0);
-  document.getElementById('totalFaktur').innerText = rupiah(tf);
-  document.getElementById('totalTagihan').innerText = rupiah(tt);
-  document.getElementById('jmlFaktur').innerText = data.faktur.length + ' faktur';
-  document.getElementById('jmlTagihan').innerText = data.tagihan.length + ' tagihan';
-  document.getElementById('badgeFaktur').innerText = data.faktur.length + ' Belum Lunas';
-  document.getElementById('badgeTagihan').innerText = data.tagihan.length + ' Harus Dibayar';
-  document.getElementById('totalSaldo').innerText = rupiah(tf - tt + 500000);
-  document.getElementById('listFaktur').innerHTML = data.faktur.map(x=>`<div class="row"><span>${x.nama}</span><b>${rupiah(x.nominal)}</b></div>`).join('');
-  document.getElementById('listTagihan').innerHTML = data.tagihan.map(x=>`<div class="row"><span>${x.nama}</span><b class="red">${rupiah(x.nominal)}</b></div>`).join('');
-  document.getElementById('notif').innerText = data.faktur.length + data.tagihan.length;
-  document.getElementById('tanggal').innerText = new Date().toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});
-}
-function tambah(jenis){
-  let nama = prompt('Masukkan nama ' + jenis + ' (contoh: Budi / Toko Sinar):');
-  if(!nama) return;
-  let nominal = prompt('Masukkan nominal (contoh: 500000):');
-  nominal = parseInt(nominal);
-  if(!nominal) { alert('Nominal harus angka bre!'); return; }
-  if(jenis === 'Faktur Pelanggan') data.faktur.push({nama, nominal});
-  if(jenis === 'Tagihan Pemasok') data.tagihan.push({nama, nominal});
-  if(jenis === 'Kas') { alert('Kas ditambah ' + rupiah(nominal)); }
-  localStorage.setItem('kopdes', JSON.stringify(data));
-  render();
-  alert(jenis + ' berhasil ditambah!');
-}
-function pindah(menu){ alert('Menu ' + menu + ' belum dibuat, kita bikin bareng nanti ya bre!'); }
-render();
-</script>
 </body>
 </html>
