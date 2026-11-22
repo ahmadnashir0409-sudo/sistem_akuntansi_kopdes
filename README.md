@@ -1,20 +1,22 @@
 # DAGBOEK by Nusa Pixel
 
-Sistem akuntansi koperasi desa — project turunan dari KDMP ERP Pendowo Asri.
+ERP akuntansi dan operasional koperasi, dipisahkan dari sistem produksi KDMP.
 
-## Status
-- Base source copied from `kdmp-erp-pendowo-asri` branch `work/dagboek-stabilization-2026-11-21`.
-- Current working branch: `copy/kdmp-erp-base-dagboek`.
-- Branding awal: DAGBOEK by Nusa Pixel.
-- Visual direction: black / deep forest green with neon green accents.
+## Arsitektur target
+- Frontend: Cloudflare Pages
+- API: Cloudflare Worker `dagboek-api`
+- Database: Neon PostgreSQL melalui Cloudflare Hyperdrive
+- Database produksi KDMP/Supabase tidak digunakan oleh DAGBOEK.
 
-## Important: backend isolation
-This repository is intentionally NOT connected to the original KDMP/DAGBOEK Supabase project.
-Before running the application:
-1. Create a separate Supabase project dedicated to DAGBOEK.
-2. Review and adapt the SQL migrations in `supabase/migrations` for the new project.
-3. Configure `SUPABASE_URL` and `SUPABASE_KEY` in `app.js` using the new project's public client key.
-4. Review authentication, roles, RLS policies, storage, RPCs, and environment configuration.
-5. Never copy production secrets or reuse the original KDMP database.
+## Status migrasi
+- Salinan frontend dasar dan branding DAGBOEK tersedia.
+- Migrasi skema 30 tabel KDMP tersimpan di `backend/migrations/0003_full_kdmp_schema.sql`.
+- Skema diterapkan ke database Neon DAGBOEK; tidak ada data produksi yang disalin.
+- Worker memiliki endpoint health, database check, dan autentikasi awal.
+- **Belum siap produksi:** frontend masih menggunakan Supabase JS dan placeholder credentials; lapisan data API Worker/Postgres, RPC, trigger, dan uji end-to-end seluruh modul masih harus diselesaikan.
 
-The app will not connect successfully until the new Supabase credentials are configured.
+## Keamanan
+- Jangan menghubungkan DAGBOEK ke database produksi KDMP.
+- Jangan menaruh kredensial Neon/Hyperdrive di frontend.
+- Gunakan role runtime `dagboek_app`; migrasi DDL dilakukan oleh role owner.
+- Simpan rahasia bootstrap sebagai Worker secret, bukan di repository.
