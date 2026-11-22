@@ -1,4 +1,4 @@
-import postgres from "postgres";
+import postgres from "./src/index.js";
 
 const jsonHeaders = {
   "Content-Type": "application/json; charset=utf-8",
