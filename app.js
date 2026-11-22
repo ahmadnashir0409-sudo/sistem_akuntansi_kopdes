@@ -1,8 +1,8 @@
 
-const SUPABASE_URL = "https://YOUR-NEW-DAIBOEK-PROJECT.supabase.co";
-const SUPABASE_KEY = "YOUR_NEW_DAIBOEK_PUBLISHABLE_KEY";
+const SUPABASE_URL = "https://YOUR-NEW-DAGBOEK-PROJECT.supabase.co";
+const SUPABASE_KEY = "YOUR_NEW_DAGBOEK_PUBLISHABLE_KEY";
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-window.daiboekSupabase = supabaseClient;
+window.dagboekSupabase = supabaseClient;
 const modules = {
   keuangan: ["💰", "Pencatatan Keuangan", "Pencatatan pemasukan, pengeluaran, dan transaksi kas."],
   coa: ["📚", "Chart of Accounts", "Pengelolaan daftar akun dan kode perkiraan."],
@@ -390,7 +390,7 @@ loginScreen.id = "loginScreen";
 loginScreen.innerHTML = `
   <div class="login-card">
     <div class="login-logo">D</div>
-    <h2>DAIBOEK</h2>
+    <h2>DAGBOEK</h2>
     <p>by NUSA PIXEL · ACCOUNTING SYSTEM</p>
     <form id="loginForm">
       <label>Email</label><input type="email" id="loginEmail" required autocomplete="username">
@@ -1726,7 +1726,7 @@ window.toggleSidebar=toggleSidebar;
 // =====================================
 
 async function setupBankReconciliation() {
-  const client = window.daiboekSupabase;
+  const client = window.dagboekSupabase;
   const modulePage = document.getElementById("modulePage");
 
   let content = document.getElementById("bankContent");
@@ -1864,7 +1864,7 @@ async function setupBankReconciliation() {
 }
 
 async function calculateBankReconciliation() {
-  const client = window.daiboekSupabase;
+  const client = window.dagboekSupabase;
   const accountId = document.getElementById("bankAccount").value;
   const start = document.getElementById("bankStart").value;
   const end = document.getElementById("bankEnd").value;
@@ -2014,7 +2014,7 @@ async function calculateBankReconciliation() {
 }
 
 async function saveBankMutation() {
-  const client = window.daiboekSupabase;
+  const client = window.dagboekSupabase;
   const accountId = document.getElementById("bankAccount").value;
   const date = document.getElementById("bankMutationDate").value;
   const type = document.getElementById("bankMutationType").value;
@@ -2066,7 +2066,7 @@ async function saveBankMutation() {
 async function saveBankReconciliation(
   accountId, start, end, statementBalance, bookBalance, difference
 ) {
-  const client = window.daiboekSupabase;
+  const client = window.dagboekSupabase;
   if (!client) throw new Error("Koneksi database belum siap.");
   if (!accountId || !start || !end) throw new Error("Akun dan periode wajib dipilih.");
   if (![statementBalance, bookBalance, difference].every(Number.isFinite)) {
@@ -2101,7 +2101,7 @@ async function saveBankReconciliation(
 }
 
 async function loadBankReconciliations() {
-  const client = window.daiboekSupabase;
+  const client = window.dagboekSupabase;
   const target = document.getElementById("bankHistory");
   if (!target) return;
 
@@ -2153,7 +2153,7 @@ async function loadBankReconciliations() {
 }
 
 async function loadBankMutations(reconciliationId) {
-  const client = window.daiboekSupabase;
+  const client = window.dagboekSupabase;
   const target = document.getElementById("bankMutations");
   if (!target) return;
 
@@ -2260,7 +2260,7 @@ async function loadBankMutations(reconciliationId) {
 }
 
 async function matchBankMutation(itemId, selectId) {
-  const client = window.daiboekSupabase;
+  const client = window.dagboekSupabase;
   const select = document.getElementById(selectId);
   const journalLineId = select?.value;
   if (!journalLineId) {
@@ -8880,9 +8880,9 @@ function setupSettings(){
         <div class="about-brand-mark">D</div>
         <div class="about-brand-content">
           <span class="about-brand-eyebrow">ABOUT THIS APPLICATION</span>
-          <h3>DAIBOEK</h3>
+          <h3>DAGBOEK</h3>
           <p class="about-brand-tagline">ERP & Financial Management System</p>
-          <p class="about-brand-description">DAIBOEK dikembangkan sebagai sistem pengelolaan operasional dan keuangan yang membantu pencatatan, pemantauan, serta pengambilan keputusan secara lebih terstruktur.</p>
+          <p class="about-brand-description">DAGBOEK dikembangkan sebagai sistem pengelolaan operasional dan keuangan yang membantu pencatatan, pemantauan, serta pengambilan keputusan secara lebih terstruktur.</p>
           <div class="about-brand-divider"></div>
           <div class="about-brand-credit"><span>Dikembangkan oleh</span><strong>Ahmad Nashirudin</strong></div>
           <div class="about-brand-credit"><span>Studio pengembang</span><strong>Nusa Pixel</strong></div>
@@ -9009,7 +9009,7 @@ window.showPage=function(page,button){
 
 
 // =====================================================
-// REFERENSI DAIBOEK: RUMUS EXCEL & KAMUS AKUNTANSI
+// REFERENSI DAGBOEK: RUMUS EXCEL & KAMUS AKUNTANSI
 // =====================================================
 const referenceExcelData = [
   {name:"SUM",category:"Matematika",syntax:"=SUM(number1, [number2], …)",example:"=SUM(B2:B10)",description:"Menjumlahkan seluruh angka dalam satu atau beberapa rentang.",use:"Menjumlahkan total pemasukan, pengeluaran, simpanan, atau penjualan."},
@@ -9091,7 +9091,7 @@ function setupReferenceLibrary(){
     section.innerHTML=`
       <div class="reference-hero">
         <div class="reference-hero-icon">📚</div>
-        <div><span class="reference-eyebrow">PUSAT REFERENSI DAIBOEK</span><h2>Rumus Excel & Kamus Akuntansi</h2><p>Temukan rumus spreadsheet dan pahami istilah akuntansi dengan contoh yang dekat dengan kegiatan koperasi.</p></div>
+        <div><span class="reference-eyebrow">PUSAT REFERENSI DAGBOEK</span><h2>Rumus Excel & Kamus Akuntansi</h2><p>Temukan rumus spreadsheet dan pahami istilah akuntansi dengan contoh yang dekat dengan kegiatan koperasi.</p></div>
       </div>
       <div class="reference-tabs" role="tablist" aria-label="Jenis referensi">
         <button type="button" class="reference-tab active" data-reference-tab="excel" role="tab" aria-selected="true">📊 Rumus Excel</button>
